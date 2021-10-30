@@ -12,6 +12,12 @@ if [[ -f $HOME/.work.zsh ]]; then
     source $HOME/.work.zsh
 fi
 
+# brew coreutils, like sha256sum
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# Export dir for git cu to use as basedir
+export GIT_CU_DIR=~/git
+
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
