@@ -7,9 +7,13 @@ export PATH="/usr/local/sbin:$PATH"
 # Add Go bin path
 export PATH="$HOME/go/bin:$PATH"
 
-# Add work functions if they are there
+# Add work stuff if this is here
 if [[ -f $HOME/.work.zsh ]]; then
     source $HOME/.work.zsh
+fi
+# Add BM stuff is this is here
+if [[ -f $HOME/.bm.zsh ]]; then
+    source $HOME/.bm.zsh
 fi
 
 # brew coreutils, like sha256sum
@@ -48,7 +52,12 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf)
+if [[ -f $HOME/.bm.zsh ]]; then
+   plugins=(git fzf doctl)
+else
+   plugins=(git fzf)
+fi
+
 
 source $ZSH/oh-my-zsh.sh
 
