@@ -15,6 +15,10 @@ fi
 if [[ -f $HOME/.bm.zsh ]]; then
     source $HOME/.bm.zsh
 fi
+# Set editor to Neovim if biniary is there
+if [[ -f /usr/local/bin/nvim ]]; then
+    export EDITOR=nvim
+fi
 
 # brew coreutils, like sha256sum
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
