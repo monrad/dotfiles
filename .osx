@@ -50,6 +50,13 @@ chflags nohidden ~/Library
 defaults write com.apple.dock autohide -bool true
 
 ###############################################################################
+# Mission Control, Spaces                                                     #
+###############################################################################
+
+# Don't rearrange spaces
+defaults write com.apple.dock mru-spaces -bool false
+
+###############################################################################
 # Kill/restart affected applications                                          #
 ###############################################################################
 
