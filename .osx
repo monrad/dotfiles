@@ -61,7 +61,7 @@ defaults write com.apple.dock mru-spaces -bool false
 ###############################################################################
 
 # Set up Divvy shortcuts
-defaults import ~/iCloudDrive/Bootstrap/Divvy/com.mizage.Divvy.plist
+defaults import com.mizage.Divvy ~/iCloudDrive/Bootstrap/Divvy/com.mizage.Divvy.plist
 
 ###############################################################################
 # Kill/restart affected applications                                          #
