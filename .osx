@@ -56,7 +56,6 @@ defaults write com.apple.dock autohide -bool true
 # Don't rearrange spaces
 defaults write com.apple.dock mru-spaces -bool false
 
-
 ###############################################################################
 # Divvy                                                                       #
 ###############################################################################
