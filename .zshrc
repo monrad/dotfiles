@@ -36,11 +36,7 @@ eval "$(pyenv init -)"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-if [[ -f $HOME/.work.zsh ]]; then
-    ZSH_THEME="bart"
-else
-    ZSH_THEME="lukerandall"
-fi
+ZSH_THEME="lukerandall"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="false"
