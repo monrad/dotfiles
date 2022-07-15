@@ -39,6 +39,21 @@ fi
 # Set Appearence to switch between light/dark
 defaults write .GlobalPreferences AppleInterfaceStyleSwitchesAutomatically -bool true
 
+# Disable smart quotes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable smart dashes as they’re annoying when typing code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Disable automatic capitalization
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# Disable spelling corrections
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Disable automatic period insertion
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
