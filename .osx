@@ -58,6 +58,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Disable automatic period insertion
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
+# Always show the sound settings
+defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true 
+
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
