@@ -37,60 +37,11 @@ else
 fi
 
 ###############################################################################
-# General UI/UX                                                               #
-###############################################################################
-
-# Set Appearence to switch between light/dark
-defaults write .GlobalPreferences AppleInterfaceStyleSwitchesAutomatically -bool true
-
-# Disable smart quotes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
-# Disable smart dashes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-# Disable automatic capitalization
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-
-# Disable spelling corrections
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-# Disable automatic period insertion
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
-
-# Always show the sound settings
-defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true 
-
-###############################################################################
 # Finder                                                                      #
 ###############################################################################
 
-# Finder: show status bar
-defaults write com.apple.finder ShowStatusBar -bool true
-
 # Show the ~/Library folder
 chflags nohidden ~/Library
-
-# Use list view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `Nlsv`, `clmv`, `Flwv`
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-
-###############################################################################
-# Dock                                                                        #
-###############################################################################
-
-# Autohide the dock
-defaults write com.apple.dock autohide -bool true
-
-# Don't show recent apps in dock
-defaults write com.apple.dock show-recents -bool -false
-
-###############################################################################
-# Mission Control, Spaces                                                     #
-###############################################################################
-
-# Don't rearrange spaces
-defaults write com.apple.dock mru-spaces -bool false
 
 ###############################################################################
 # Divvy                                                                       #
@@ -105,7 +56,7 @@ defaults import com.mizage.Divvy ~/Library/Mobile\ Documents/com\~apple\~CloudDo
 
 # Restart affected applications if `--no-restart` flag is not present.
 if [[ ! ($* == *--no-restart*) ]]; then
-  for app in "cfprefsd" "Dock" "Finder" "Mail" "SystemUIServer" "Terminal"; do
+  for app in "Divvy" "Finder"; do
     killall "${app}" > /dev/null 2>&1
   done
 fi
