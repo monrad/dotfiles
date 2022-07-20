@@ -85,6 +85,9 @@ alias la='ls -ahF --color'
 alias lla='ls -lahF --color'
 alias l='ls -CF --color'
 
+# alias to update Powerlevel10K
+alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
+
 # Enable homebrew version of zsh autosuggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Enable homebrew version of zsh syntax highlightning
