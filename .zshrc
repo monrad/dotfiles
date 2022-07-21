@@ -14,6 +14,9 @@ export PATH="/usr/local/sbin:$PATH"
 # Add Go bin path
 export PATH="$HOME/go/bin:$PATH"
 
+# Add .local bin path (for Poetry)
+export PATH="$HOME/.local/bin:$PATH"
+
 # Add work stuff if this is here
 if [[ -f $HOME/.work.zsh ]]; then
     source $HOME/.work.zsh
