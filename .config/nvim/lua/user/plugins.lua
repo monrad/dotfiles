@@ -45,11 +45,20 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 
   -- Whichkey
- 	use("folke/which-key.nvim")
+  use("folke/which-key.nvim")
 
   -- Colorschemes
   use ('Mofiqul/vscode.nvim') -- https://github.com/Mofiqul/vscode.nvim
   use ('folke/tokyonight.nvim') -- https://github.com/folke/tokyonight.nvim
+
+  -- Telescope
+  use ("nvim-telescope/telescope.nvim")
+
+  -- Treesitter
+  use ("nvim-treesitter/nvim-treesitter")
+
+  -- Git Worktree
+  use ("ThePrimeagen/git-worktree.nvim")
 
   -- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

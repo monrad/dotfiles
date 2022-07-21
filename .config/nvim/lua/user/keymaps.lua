@@ -1,7 +1,7 @@
-local opts = { noremap = true, silent = true }
-
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
+-- Silent keymap option
+local opts = { silent = true }
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -13,3 +13,6 @@ keymap('', '<up>', '<nop>', opts)
 keymap('', '<down>', '<nop>', opts)
 keymap('', '<left>', '<nop>', opts)
 keymap('', '<right>', '<nop>', opts)
+
+-- File explore
+keymap('n', '<leader>pv', ':Ex<CR>', opts)
