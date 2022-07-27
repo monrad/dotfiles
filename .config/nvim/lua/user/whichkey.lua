@@ -78,7 +78,7 @@ local opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
-mappings = {
+local mappings = {
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
