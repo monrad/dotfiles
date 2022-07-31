@@ -38,9 +38,8 @@ export GIT_CU_DIR=~/git
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -63,9 +62,9 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 if [[ -f $HOME/.bm.zsh ]]; then
-   plugins=(git fzf doctl)
+   plugins=(git fzf pyenv doctl)
 else
-   plugins=(git fzf)
+   plugins=(git fzf pyenv)
 fi
 
 
