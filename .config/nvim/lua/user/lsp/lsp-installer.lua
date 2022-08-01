@@ -4,10 +4,11 @@ if not status_ok then
 end
 
 local servers = {
-	"sumneko_lua",
-	"pyright",
 	"jsonls",
+	"pyright",
 	"yamlls",
+        "bashls",
+        "sumneko_lua",
 }
 
 lsp_installer.setup()
