@@ -41,6 +41,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
+# tmux setup
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_DEFAULT_SESSION_NAME="base"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -61,12 +65,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-if [[ -f $HOME/.bm.zsh ]]; then
-   plugins=(git fzf pyenv doctl)
-else
-   plugins=(git fzf pyenv)
-fi
-
+plugins=(git fzf pyenv macos doctl tmux)
 
 source $ZSH/oh-my-zsh.sh
 
