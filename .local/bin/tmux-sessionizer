@@ -10,7 +10,7 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(echo "$selected" | awk -F '/' '{printf "%s/%s/%s\n", $(NF-2), $(NF-1), $NF }' | tr . _)
+selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 
