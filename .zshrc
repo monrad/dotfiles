@@ -42,7 +42,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # tmux setup
-ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART="false"
 ZSH_TMUX_DEFAULT_SESSION_NAME="base"
 
 # Set name of the theme to load --- if set to "random", it will
