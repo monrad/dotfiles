@@ -89,6 +89,13 @@ alias l='ls -CF --color'
 # alias to update Powerlevel10K
 alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
 
+# alias for kitty ssh
+alias s="kitty +kitten ssh"
+
+# Bind keys for kitty
+bindkey "\e[1;3D" backward-word # ⌥←
+bindkey "\e[1;3C" forward-word # ⌥→
+
 # Enable homebrew version of zsh autosuggestions
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Enable homebrew version of zsh syntax highlightning
