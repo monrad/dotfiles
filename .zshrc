@@ -17,6 +17,9 @@ export PATH="$HOME/go/bin:$PATH"
 # Add .local bin path (for Poetry)
 export PATH="$HOME/.local/bin:$PATH"
 
+# Add whois bin path
+export PATH="/usr/local/opt/whois/bin:$PATH"
+
 # Add work stuff if this is here
 if [[ -f $HOME/.work.zsh ]]; then
     source $HOME/.work.zsh
