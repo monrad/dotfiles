@@ -5,11 +5,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Set homebrew prefix its different between ARM and X86
+if [ -d "/opt/homebrew/bin" ]; then
+    HOMEBREW_PREFIX="/opt/homebrew"
+else
+    HOMEBREW_PREFIX="/usr/local"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Add homebrew sbin path
-export PATH="/usr/local/sbin:$PATH"
+export PATH="${HOMEBREW_PREFIX}/sbin:$PATH"
 
 # Add Go bin path
 export PATH="$HOME/go/bin:$PATH"
@@ -18,7 +25,7 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Add whois bin path
-export PATH="/usr/local/opt/whois/bin:$PATH"
+export PATH="${}/opt/whois/bin:$PATH"
 
 # Add work stuff if this is here
 if [[ -f $HOME/.work.zsh ]]; then
@@ -34,7 +41,7 @@ if [[ -f /usr/local/bin/nvim ]]; then
 fi
 
 # brew coreutils, like sha256sum
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
 
 # Export dir for git cu to use as basedir
 export GIT_CU_DIR=~/git
@@ -42,7 +49,7 @@ export GIT_CU_DIR=~/git
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+eval "$(${HOMEBREW_PREFIX}/bin/pyenv init --path)"
 
 # tmux setup
 ZSH_TMUX_AUTOSTART="false"
@@ -103,9 +110,9 @@ if [ "$TERM" = "xterm-kitty" ]; then
 fi
 
 # Enable homebrew version of zsh autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Enable homebrew version of zsh syntax highlightning
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
