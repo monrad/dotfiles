@@ -102,7 +102,7 @@ alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlev
 # Only set kitty specific config if we are running kitty
 if [ "$TERM" = "xterm-kitty" ]; then
         #Aliases
-        alias ssh="kitty +kitten ssh" #short alias for kitty ssh
+        alias kssh="kitty +kitten ssh" #short alias for kitty ssh
         alias xssh="TERM=xterm-color /usr/bin/ssh"
         #Bindkeys
         bindkey "\e[1;3D" backward-word # ⌥←
