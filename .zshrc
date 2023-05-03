@@ -35,7 +35,7 @@ fi
 if [[ -f $HOME/.bm.zsh ]]; then
     source $HOME/.bm.zsh
 fi
-# Set editor to Neovim if biniary is there
+# Set editor to Neovim if binary is there
 if [[ -f /usr/local/bin/nvim ]]; then
     export EDITOR=nvim
 fi
@@ -75,7 +75,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew fzf pyenv macos doctl tmux)
+plugins=(git brew fzf pyenv macos tmux)
 
 source $ZSH/oh-my-zsh.sh
 
