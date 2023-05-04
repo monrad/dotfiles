@@ -108,7 +108,13 @@ if [ "$TERM" = "xterm-kitty" ]; then
         bindkey "\e[1;3D" backward-word # ⌥←
         bindkey "\e[1;3C" forward-word # ⌥→
 fi
-
+# Only set iterm2 specific config if we are running iterm2
+if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
+        alias i2black="it2setcolor bg 000000"
+        alias i2red="it2setcolor bg 700000"
+        alias i2blue="it2setcolor bg 000050"
+        alias i2purple="it2setcolor bg 300050"
+fi
 # Enable homebrew version of zsh autosuggestions
 source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Enable homebrew version of zsh syntax highlightning
