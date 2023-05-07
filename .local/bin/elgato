@@ -12,6 +12,8 @@ pkill -f "/WaveLink"
 echo "Sleeping for 5 seconds"
 sleep 5
 
+echo "Starting Camera Hub"
+open /Applications/Elgato\ Camera\ Hub.app
 echo "Starting Control Center"
 open /Applications/Elgato\ Control\ Center.app
 echo "Starting Wave Link"
