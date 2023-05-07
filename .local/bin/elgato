@@ -24,10 +24,11 @@ restart_elgato_apps () {
 
 if [[ $1 = restart ]]
 then
-    echo "Restarting Elgato Apps"
+    echo "Killing Elgato Apps"
     kill_elgato_apps
     echo "Sleeping for 5 seconds"
     sleep 5
+    echo "Restarting Elgato Apps"
     restart_elgato_apps
 elif [[ $1 = kill ]]
 then
