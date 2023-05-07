@@ -1,20 +1,49 @@
 #!/bin/bash
 
-echo "Pkilling Camera Hub"
-pkill "Camera Hub"
-echo "Pkilling Stream Deck"
-pkill "Stream Deck"
-echo "Pkilling Control Center"
-pkill "Elgato Control Center"
-echo "Pkilling Wave Link"
-pkill -f "/WaveLink"
+kill_elgato_apps () {
+    echo "Killing Camera Hub"
+    osascript -e 'quit application "Elgato Camera Hub"'
+    echo "Killing Stream Deck"
+    osascript -e 'quit application "Elgato Stream Deck"'
+    echo "Killing Control Center"
+    osascript -e 'quit application "Elgato Control Center"'
+    echo "Killing Wave Link"
+    osascript -e 'quit application "Elgato Wave Link"'
+}
 
-echo "Sleeping for 5 seconds"
-sleep 5
+restart_elgato_apps () {
+    echo "Starting Camera Hub"
+    open -a "Elgato Camera Hub" --args --background
+    echo "Starting Stream Deck"
+    open -a "Elgato Stream Deck" --args --runinbk
+    echo "Starting Control Center"
+    open -a "Elgato Control Center"
+    echo "Starting Wave Link"
+    open -a "Elgato Wave Link"
+}
 
-echo "Starting Camera Hub"
-open /Applications/Elgato\ Camera\ Hub.app
-echo "Starting Control Center"
-open /Applications/Elgato\ Control\ Center.app
-echo "Starting Wave Link"
-open /Applications/Elgato\ Wave\ Link.app
+if [[ $1 = restart ]]
+then
+    echo "Restarting Elgato Apps"
+    kill_elgato_apps
+    echo "Sleeping for 5 seconds"
+    sleep 5
+    restart_elgato_apps
+elif [[ $1 = kill ]]
+then
+    echo "Killing Elgato Apps"
+    kill_elgato_apps
+else
+    echo "Invalid argument supplied"
+    echo "Usage: elgato [restart|kill]"
+    exit 1
+fi
+
+
+
+
+
+
+
+
+
