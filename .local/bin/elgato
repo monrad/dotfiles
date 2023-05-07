@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Pkilling Camera Hub"
+pkill "Camera Hub"
+echo "Pkilling Stream Deck"
+pkill "Stream Deck"
+echo "Pkilling Control Center"
+pkill "Elgato Control Center"
+echo "Pkilling Wave Link"
+pkill -f "/WaveLink"
+
+echo "Sleeping for 5 seconds"
+sleep 5
+
+echo "Starting Control Center"
+open /Applications/Elgato\ Control\ Center.app
+echo "Starting Wave Link"
+open /Applications/Elgato\ Wave\ Link.app
