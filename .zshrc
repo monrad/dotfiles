@@ -11,7 +11,6 @@ if [ -d "/opt/homebrew/bin" ]; then
 else
     HOMEBREW_PREFIX="/usr/local"
 fi
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -26,6 +25,9 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Add whois bin path
 export PATH="${}/opt/whois/bin:$PATH"
+
+# Add homebrew fpath
+FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 
 # Add work stuff if this is here
 if [[ -f $HOME/.work.zsh ]]; then
@@ -75,7 +77,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew fzf pyenv macos tmux)
+plugins=(git brew fzf pyenv macos tmux virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
