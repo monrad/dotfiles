@@ -121,6 +121,8 @@ fi
 source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Enable homebrew version of zsh syntax highlightning
 source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Enable homebrew version of zsh you should use
+source ${HOMEBREW_PREFIX}/share/zsh-you-should-use/you-should-use.plugin.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
