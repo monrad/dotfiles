@@ -27,7 +27,10 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="${}/opt/whois/bin:$PATH"
 
 # Add homebrew fpath
-FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+
+# Setup less settings
+export LESS="--chop-long-lines --HILITE-UNREAD --ignore-case --incsearch --jump-target=4 --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS --use-color --window=-4"
 
 # Add work stuff if this is here
 if [[ -f $HOME/.work.zsh ]]; then
