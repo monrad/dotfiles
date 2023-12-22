@@ -32,6 +32,9 @@ export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 # Setup less settings
 export LESS="--chop-long-lines --HILITE-UNREAD --ignore-case --incsearch --jump-target=4 --LONG-PROMPT --no-init --quit-if-one-screen --RAW-CONTROL-CHARS --use-color --window=-4"
 
+# Setup ripgrep rc file
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
+
 # Add work stuff if this is here
 if [[ -f $HOME/.work.zsh ]]; then
     source $HOME/.work.zsh
