@@ -1,0 +1,69 @@
+[user]
+	email = mikkel@tdx.dk
+	name = Mikkel Mondrup Kristensen
+[core]
+	pager = delta
+[delta]
+	# https://dandavison.github.io/delta/configuration.html
+	hyperlinks = true
+	line-numbers = true
+	navigate = true
+	syntax-theme = Monokai Extended
+[diff]
+	colorMoved = default
+	algorithm = histogram
+	interHunkContext = 3
+	noprefix = true
+[diff "exiftool"]
+    textconv = exiftool --composite -x 'Exiftool:*' -x 'File:*' -g0
+    cachetextconv = true
+    xfuncname = "^-.*$"
+[interactive]
+	diffFilter = delta --color-only
+	singleKey = true
+[merge]
+	conflictStyle = zdiff3
+	autoStash = true
+[init]
+	defaultBranch = main
+[alias]
+	alias-master-as-main = !git symbolic-ref refs/heads/main refs/heads/master && git symbolic-ref refs/remotes/origin/main refs/remotes/origin/master && git switch main
+    switch-recent = !git branch --sort=-committerdate --format='%(refname:short)' | fzf --preview='git log --date=relative --color main..{}' | xargs git switch
+    rm-merged = !git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" { print $1 }' | xargs -r git branch -D 
+	sync = !git switch main && git pull && git rm-merged
+	list-changed = diff --name-only --diff-filter d
+[advice]
+	statusHints = false
+[status]
+	short = true
+	branch = true
+[commit]
+	verbose = 1
+	cleanup = scissors
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	frag = magenta bold
+	meta = yellow bold
+	new = green bold
+	old = red bold
+	whitespace = red reverse
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[include]
+	path = custom.inc
