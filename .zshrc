@@ -34,7 +34,7 @@ export LESS="--chop-long-lines --HILITE-UNREAD --ignore-case --incsearch --jump-
 
 # Setup ripgrep
 export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
-function rg { command rg --json $@ | delta --tabs=1; }
+function rg { command rg --json --context 2 $@ | delta --tabs=1; }
 
 # Add work stuff if this is here
 if [[ -f $HOME/.work.zsh ]]; then
