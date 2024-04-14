@@ -7,8 +7,6 @@ kill_elgato_apps () {
     osascript -e 'quit application "Elgato Stream Deck"'
     echo "Killing Control Center"
     osascript -e 'quit application "Elgato Control Center"'
-    echo "Killing Wave Link"
-    osascript -e 'quit application "Elgato Wave Link"'
 }
 
 restart_elgato_apps () {
@@ -18,8 +16,6 @@ restart_elgato_apps () {
     open -a "Elgato Stream Deck" --args --runinbk
     echo "Starting Control Center"
     open -a "Elgato Control Center"
-    echo "Starting Wave Link"
-    open -a "Elgato Wave Link"
 }
 
 if [[ $1 = restart ]]
