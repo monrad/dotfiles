@@ -289,6 +289,8 @@ require("lazy").setup({
         ["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
         ["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
         ["<leader>gw"] = { name = "[G]it [W]orktree", _ = "which_key_ignore" },
+        ["<leader>t"] = { name = "[T]oggleTerm", _ = "which_key_ignore" },
+        ["<leader>tt"] = { name = "[T]oggleTerm [T]oggle", _ = "which_key_ignore" },
       }
     end,
   },
