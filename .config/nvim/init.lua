@@ -599,6 +599,7 @@ require("lazy").setup({
         "jsonls",
         "jsonnet_ls",
         "lua_ls",
+        "marksman",
         "pyright",
         "ruff_lsp",
         "stylua", -- Used to format lua code
