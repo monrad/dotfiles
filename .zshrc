@@ -14,8 +14,8 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Add homebrew sbin path
-export PATH="${HOMEBREW_PREFIX}/sbin:$PATH"
+# Add homebrew bin paths
+export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$PATH"
 
 # Add Go bin path
 export PATH="$HOME/go/bin:$PATH"
