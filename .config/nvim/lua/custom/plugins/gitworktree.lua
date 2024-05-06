@@ -10,6 +10,12 @@ return {
   vim.keymap.set("n", "<leader>gwl", ":Telescope git_worktree git_worktree<CR>", { desc = "[G]it [W]orktree [L]ist" }),
   vim.keymap.set(
     "n",
+    "<leader>gws",
+    ":Telescope git_worktree git_worktree<CR>",
+    { desc = "[G]it [W]orktree [S]witch" }
+  ),
+  vim.keymap.set(
+    "n",
     "<leader>gwc",
     ":Telescope git_worktree create_git_worktree<CR>",
     { desc = "[G]it [W]orktree [C]reate" }
