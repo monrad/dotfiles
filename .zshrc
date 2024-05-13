@@ -17,8 +17,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add homebrew bin paths
 export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$PATH"
 
-# Add Go bin path
-export PATH="$HOME/go/bin:$PATH"
+# Add Go exports
+export GOPATH=`go env GOPATH:`
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
 
 # Add .local bin path (for Poetry)
 export PATH="$HOME/.local/bin:$PATH"
