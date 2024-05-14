@@ -1,5 +1,6 @@
 return {
   "linux-cultist/venv-selector.nvim",
+  branch = "regexp",
   dependencies = {
     "neovim/nvim-lspconfig",
     "nvim-telescope/telescope.nvim",
@@ -7,6 +8,6 @@ return {
   },
   opts = {
     dap_enabled = true, -- makes the debugger work with venv
-    name = { ".venv" },
+    -- name = { ".venv" },
   },
 }
