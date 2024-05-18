@@ -48,6 +48,12 @@ return {
       },
     }
 
+    -- Lets do some logging
+    -- require("dap").set_log_level "INFO"
+
+    -- Look for launch.json in .vscode
+    require("dap.ext.vscode").load_launchjs(nil, {})
+
     -- Basic debugging keymaps, feel free to change to your liking!
     vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
     vim.keymap.set("n", "<F1>", dap.step_into, { desc = "Debug: Step Into" })
