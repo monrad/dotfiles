@@ -6,8 +6,10 @@ return {
     "nvim-telescope/telescope.nvim",
     "mfussenegger/nvim-dap-python",
   },
-  opts = {
-    dap_enabled = true, -- makes the debugger work with venv
-    -- name = { ".venv" },
+  config = function()
+    require("venv-selector").setup()
+  end,
+  keys = {
+    { ",v", "<cmd>VenvSelect<cr>" },
   },
 }
