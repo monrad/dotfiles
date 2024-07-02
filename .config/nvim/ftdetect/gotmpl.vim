@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead * if search('{{.\+}}', 'nw') | setlocal filetype=gotmpl | endif
+autocmd BufNewFile,BufRead *.tmpl setlocal filetype=gotmpl
