@@ -18,7 +18,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$PATH"
 
 # Add Go exports
-export GOPATH=`go env GOPATH:`
+export GOPATH=`go env GOPATH`
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOBIN"
 
