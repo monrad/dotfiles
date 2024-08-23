@@ -14,6 +14,9 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Set LANG
+export LANG="en_US.UTF-8"
+
 # Add homebrew bin paths
 export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$PATH"
 
