@@ -38,20 +38,19 @@ return {
         F11 = "<F11>",
         F12 = "<F12>",
       },
-
-      -- Document existing key chains
-      spec = {
-        { "<leader>c", group = "[c]ode", mode = { "n", "x" } },
-        { "<leader>d", group = "[d]ocument" },
-        { "<leader>r", group = "[r]ename" },
-        { "<leader>s", group = "[s]earch" },
-        { "<leader>w", group = "[w]orkspace" },
-        { "<leader>t", group = "[t]oggle" },
-        { "<leader>g", group = "[g]it" },
-        { "<leader>n", group = "[n]otifications" },
-        { "<leader>gw", group = "[g]it [w]orktree" },
-        { "<leader>gh", group = "[g]it [h]unk", mode = { "n", "v" } },
-      },
+    },
+    -- Document existing key chains
+    spec = {
+      { "<leader>c", group = "[c]ode", mode = { "n", "x" } },
+      { "<leader>d", group = "[d]ocument" },
+      { "<leader>r", group = "[r]ename" },
+      { "<leader>s", group = "[s]earch" },
+      { "<leader>w", group = "[w]orkspace" },
+      { "<leader>t", group = "[t]oggle" },
+      { "<leader>g", group = "[g]it" },
+      { "<leader>n", group = "[n]otifications" },
+      { "<leader>gw", group = "[g]it [w]orktree" },
+      { "<leader>gh", group = "[g]it [h]unk", mode = { "n", "v" } },
     },
   },
 }
