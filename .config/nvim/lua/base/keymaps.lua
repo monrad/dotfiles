@@ -35,7 +35,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<leader>ts", function()
   vim.opt.spell = not vim.o.spell
   print("Spell checking is", (vim.o.spell and "enabled" or "disabled"))
-end, { desc = "[T]oggle [S]pell" })
+end, { desc = "[t]oggle [s]pell" })
 
 -- Yank to system clipboard
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "[y]ank to system clipboard" })
