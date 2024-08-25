@@ -36,3 +36,6 @@ vim.keymap.set("n", "<leader>ts", function()
   vim.opt.spell = not vim.o.spell
   print("Spell checking is", (vim.o.spell and "enabled" or "disabled"))
 end, { desc = "[T]oggle [S]pell" })
+
+-- Yank to system clipboard
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "[y]ank to system clipboard" })
