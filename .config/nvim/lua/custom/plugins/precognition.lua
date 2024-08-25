@@ -1,7 +1,7 @@
 return {
   "tris203/precognition.nvim",
   opts = {
-    -- startVisible = true,
+    startVisible = false,
     -- showBlankVirtLine = true,
     -- hints = {
     --      Caret = { text = "^", prio = 2 },
