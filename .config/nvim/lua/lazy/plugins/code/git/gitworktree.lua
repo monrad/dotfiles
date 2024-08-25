@@ -4,9 +4,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  config = function()
-    require("git-worktree").setup {}
-  end,
+  opt = {},
   vim.keymap.set("n", "<leader>gwl", ":Telescope git_worktree git_worktree<CR>", { desc = "[g]it [w]orktree [l]ist" }),
   vim.keymap.set(
     "n",

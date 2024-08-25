@@ -23,6 +23,7 @@ return {
 
     -- Add your own debuggers here
     "leoluz/nvim-dap-go",
+    "mfussenegger/nvim-dap-python",
 
     -- Add virtual text to make go plugin happy
     "theHamsta/nvim-dap-virtual-text",
