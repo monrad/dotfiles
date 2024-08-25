@@ -28,6 +28,7 @@ require("lazy").setup {
   require "lazy.plugins.code.go.goimplements",
   -- Markdown
   require "lazy.plugins.code.markdown.markdown-preview",
+  require "lazy.plugins.code.markdown.render-markdown",
   -- Git
   require "lazy.plugins.code.git.gitsigns",
   require "lazy.plugins.code.git.gitworktree",
