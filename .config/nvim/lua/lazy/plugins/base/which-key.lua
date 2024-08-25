@@ -47,7 +47,7 @@ return {
       { "<leader>s", group = "[s]earch" },
       { "<leader>w", group = "[w]orkspace" },
       { "<leader>t", group = "[t]oggle" },
-      { "<leader>g", group = "[g]it" },
+      { "<leader>g", group = "[g]it", mode = { "n", "v" } },
       { "<leader>n", group = "[n]otifications" },
       { "<leader>gw", group = "[g]it [w]orktree" },
       { "<leader>gh", group = "[g]it [h]unk", mode = { "n", "v" } },
