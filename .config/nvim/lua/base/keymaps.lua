@@ -39,3 +39,6 @@ end, { desc = "[t]oggle [s]pell" })
 
 -- Yank to system clipboard
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "[y]ank to system clipboard" })
+
+-- Paste from system clipboard
+vim.keymap.set("n", "<leader>p", '"+p', { desc = "[p]aste from system clipboard" })
