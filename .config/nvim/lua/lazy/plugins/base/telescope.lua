@@ -97,7 +97,7 @@ return {
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set("n", "<leader>/", function()
       builtin.current_buffer_fuzzy_find()
-    end, { desc = "[/] Fuzzily search in current buffer" })
+    end, { desc = "[/] fuzzily search in current buffer" })
 
     -- Also possible to pass additional configuration options.
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
