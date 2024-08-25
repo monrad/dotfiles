@@ -2,4 +2,4 @@
 
 From [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim/)
 
-Currently up to date until commit ac78e7d
+Currently up to date until commit d452633
