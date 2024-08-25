@@ -5,14 +5,12 @@ return {
     require("lualine").setup {
       sections = {
         lualine_x = {
+          "encoding",
+          "fileformat",
+          "filetype",
           {
             require("noice").api.status.message.get_hl,
             cond = require("noice").api.status.message.has,
-          },
-          {
-            require("noice").api.status.command.get,
-            cond = require("noice").api.status.command.has,
-            color = { fg = "#ff9e64" },
           },
           {
             require("noice").api.status.mode.get,
