@@ -330,6 +330,7 @@ require("lazy").setup({
         { "<leader>w", group = "[w]orkspace" },
         { "<leader>t", group = "[t]oggle" },
         { "<leader>g", group = "[g]it" },
+        { "<leader>n", group = "[n]otifications" },
         { "<leader>gw", group = "[g]it [w]orktree" },
         { "<leader>gh", group = "[g]it [h]unk", mode = { "n", "v" } },
       }
@@ -885,8 +886,8 @@ require("lazy").setup({
           ["<C-p>"] = cmp.mapping.select_prev_item(),
 
           -- scroll the documentation window [b]ack / [f]orward
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          -- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          -- ["<C-f>"] = cmp.mapping.scroll_docs(4),
 
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
@@ -1011,7 +1012,19 @@ require("lazy").setup({
     main = "nvim-treesitter.configs", -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { "bash", "c", "diff", "html", "lua", "markdown", "markdown_inline", "query", "vim", "vimdoc" },
+      ensure_installed = {
+        "bash",
+        "c",
+        "diff",
+        "html",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "query",
+        "regex",
+        "vim",
+        "vimdoc",
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
