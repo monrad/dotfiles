@@ -31,7 +31,7 @@ return {
     require("noice").cmd "last"
   end, { desc = "[n]otifications [l]ast" }),
   vim.keymap.set("n", "<leader>nh", function()
-    require("noice").cmd "history"
+    require("noice").cmd "telescope"
   end, { desc = "[n]otifications [h]istory" }),
   vim.keymap.set({ "n", "i", "s" }, "<c-f>", function()
     if not require("noice.lsp").scroll(4) then
