@@ -21,6 +21,7 @@ require("lazy").setup {
   require "lazy.plugins.code.lint",
   require "lazy.plugins.code.lsp",
   require "lazy.plugins.code.treesitter",
+  require "lazy.plugins.code.trouble",
   -- Lua
   require "lazy.plugins.code.lua.lazydev",
   require "lazy.plugins.code.lua.luvit-meta",
