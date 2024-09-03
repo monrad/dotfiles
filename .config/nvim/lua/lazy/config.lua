@@ -11,6 +11,7 @@ require("lazy").setup {
   require "lazy.plugins.ui.tokyonight",
   -- base plugins
   require "lazy.plugins.base.telescope",
+  require "lazy.plugins.base.undotree",
   require "lazy.plugins.base.vim-sleuth",
   require "lazy.plugins.base.which-key",
   -- code plugins
