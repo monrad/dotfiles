@@ -10,6 +10,7 @@ require("lazy").setup {
   require "lazy.plugins.ui.todo-comments",
   require "lazy.plugins.ui.tokyonight",
   -- base plugins
+  require "lazy.plugins.base.arrow",
   require "lazy.plugins.base.telescope",
   require "lazy.plugins.base.undotree",
   require "lazy.plugins.base.vim-sleuth",
