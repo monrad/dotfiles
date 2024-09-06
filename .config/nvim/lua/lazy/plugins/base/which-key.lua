@@ -42,6 +42,7 @@ return {
     -- Document existing key chains
     spec = {
       { "<leader>c", group = "[c]ode", mode = { "n", "x" } },
+      { "<leader>ci", group = "[c]ode [i]ncremental selection", mode = { "n", "x" } },
       { "<leader>d", group = "[d]ocument" },
       { "<leader>r", group = "[r]ename" },
       { "<leader>s", group = "[s]earch" },
