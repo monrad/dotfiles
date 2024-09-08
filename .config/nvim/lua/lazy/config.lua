@@ -27,7 +27,6 @@ require("lazy").setup {
   require "lazy.plugins.code.treesitter.treesitter",
   require "lazy.plugins.code.treesitter.textobject",
   require "lazy.plugins.code.treesitter.autotag",
-
   -- Lua
   require "lazy.plugins.code.lua.lazydev",
   require "lazy.plugins.code.lua.luvit-meta",
