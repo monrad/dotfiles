@@ -32,6 +32,7 @@ require("lazy").setup {
   require "lazy.plugins.code.lua.luvit-meta",
   -- Go
   require "lazy.plugins.code.go.goimplements",
+  require "lazy.plugins.code.go.gotests",
   -- Markdown
   require "lazy.plugins.code.markdown.markdown-preview",
   require "lazy.plugins.code.markdown.render-markdown",

@@ -43,6 +43,7 @@ return {
     spec = {
       { "<leader>c", group = "[c]ode", mode = { "n", "x" } },
       { "<leader>ci", group = "[c]ode [i]ncremental selection", mode = { "n", "x" } },
+      { "<leader>cg", group = "[c]ode [g]o utils", mode = { "n", "x" } },
       { "<leader>d", group = "[d]ocument" },
       { "<leader>r", group = "[r]ename" },
       { "<leader>s", group = "[s]earch" },
