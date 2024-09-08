@@ -23,5 +23,7 @@ return {
     --     NextParagraph = { text = "}", prio = 1 },
     -- },
   },
-  vim.keymap.set("n", "<leader>tp", ":lua require('precognition').toggle()<CR>", { desc = "[t]oggle [p]recognition" }),
+  keys = {
+    { "<leader>tp", "<cmd>lua require('precognition').toggle()<cr>", desc = "[t]oggle [p]recognition" },
+  },
 }

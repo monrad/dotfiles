@@ -6,9 +6,7 @@ return {
     "nvim-telescope/telescope.nvim",
     "mfussenegger/nvim-dap-python",
   },
-  config = function()
-    require("venv-selector").setup()
-  end,
+  opts = {},
   keys = {
     { ",v", "<cmd>VenvSelect<cr>" },
   },

@@ -5,19 +5,16 @@ return {
     "nvim-lua/plenary.nvim",
   },
   opt = {},
-  vim.keymap.set("n", "<leader>gwl", ":Telescope git_worktree git_worktree<CR>", { desc = "[g]it [w]orktree [l]ist" }),
-  vim.keymap.set(
-    "n",
-    "<leader>gws",
-    ":Telescope git_worktree git_worktree<CR>",
-    { desc = "[g]it [w]orktree [s]witch" }
-  ),
-  vim.keymap.set(
-    "n",
-    "<leader>gwc",
-    ":Telescope git_worktree create_git_worktree<CR>",
-    { desc = "[g]it [w]orktree [c]reate" }
-  ),
+  keys = {
+    { "<leader>gwl", "<cmd>Telescope git_worktree git_worktree<cr>", mode = "n", desc = "[g]it [w]orktree [l]ist" },
+    { "<leader>gws", "<cmd>Telescope git_worktree git_worktree<cr>", mode = "n", desc = "[g]it [w]orktree [s]witch" },
+    {
+      "<leader>gwc",
+      "<cmd>Telescope git_worktree create_git_worktree<cr>",
+      mode = "n",
+      desc = "[g]it [w]orktree [c]reate",
+    },
+  },
   config = function()
     local Hooks = require "git-worktree.hooks"
     local config = require "git-worktree.config"
