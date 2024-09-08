@@ -40,6 +40,7 @@ require("lazy").setup {
   require "lazy.plugins.code.git.gitworktree",
   -- Python
   require "lazy.plugins.code.python.python-venv-selector",
+  -- require "lazy.plugins.code.python.whichpy",
   -- Ansible
   require "lazy.plugins.code.ansible.nvim-ansible",
 
