@@ -157,31 +157,12 @@ return {
         settings = {
           gopls = {
             analyses = {
-              append = true,
-              asmdecl = true,
-              assign = true,
-              atomic = true,
-              unreachable = true,
-              nilness = true,
-              ST1003 = true,
-              undeclaredname = true,
-              fillreturns = true,
-              nonewvars = true,
-              fieldalignment = true,
-              shadow = true,
-              unusedvariable = true,
-              unusedparams = true,
               useany = true,
-              unusedwrite = true,
             },
             codelenses = {
-              generate = true, -- show the `go generate` lens.
               gc_details = true, -- Show a code lens toggling the display of gc's choices.
               test = true,
-              tidy = true,
-              vendor = true,
-              regenerate_cgo = true,
-              upgrade_dependency = true,
+              run_govulncheck = true,
             },
             hints = {
               assignVariableTypes = true,
@@ -195,10 +176,6 @@ return {
             usePlaceholders = true,
             completeUnimported = true,
             staticcheck = true,
-            matcher = "Fuzzy",
-            diagnosticsDelay = "500ms",
-            diagnosticsTrigger = "Save",
-            symbolMatcher = "FastFuzzy",
             semanticTokens = true,
             noSemanticString = true, -- disable semantic string tokens so we can use treesitter highlight injection
             vulncheck = "Imports",
