@@ -33,6 +33,7 @@ require("lazy").setup {
   -- Go
   require "lazy.plugins.code.go.goimplements",
   require "lazy.plugins.code.go.gotests",
+  require "lazy.plugins.code.go.templ-goto-definition",
   -- Markdown
   require "lazy.plugins.code.markdown.markdown-preview",
   require "lazy.plugins.code.markdown.render-markdown",
