@@ -23,6 +23,9 @@ require("lazy").setup {
   require "lazy.plugins.code.lint",
   require "lazy.plugins.code.lsp",
   require "lazy.plugins.code.trouble",
+  -- YAML/JSON
+  require "lazy.plugins.code.yaml.schemastore",
+  require "lazy.plugins.code.yaml.yaml-companion",
   -- Treesitter
   require "lazy.plugins.code.treesitter.treesitter",
   require "lazy.plugins.code.treesitter.textobject",
