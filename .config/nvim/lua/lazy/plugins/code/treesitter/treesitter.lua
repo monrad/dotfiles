@@ -16,6 +16,7 @@ return {
       "gitignore",
       "go",
       "html",
+      "json",
       "lua",
       "markdown",
       "markdown_inline",
