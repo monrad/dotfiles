@@ -37,15 +37,34 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-emoji",
     "chrisgrieser/cmp-nerdfont",
-    "ray-x/cmp-sql",
+    "onsails/lspkind.nvim",
   },
   config = function()
     -- See `:help cmp`
     local cmp = require "cmp"
     local luasnip = require "luasnip"
+    local lspkind = require "lspkind"
     luasnip.config.setup {}
 
     cmp.setup {
+      formatting = {
+        format = lspkind.cmp_format {
+          mode = "symbol_text",
+          maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+          -- can also be a function to dynamically calculate max width such as
+          -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
+          ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+          menu = {
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            path = "[Path]",
+            buffer = "[Buffer]",
+            emoji = "[Emoji]",
+            nerdfont = "[NerdFont]",
+          },
+        },
+      },
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -111,13 +130,12 @@ return {
           -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
           group_index = 0,
         },
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
+        { name = "nvim_lsp", max_item_count = 10 },
+        { name = "luasnip", max_item_count = 10 },
         { name = "path", max_item_count = 5 },
         { name = "buffer", max_item_count = 5 },
         { name = "emoji", max_item_count = 5 },
         { name = "nerdfont", max_item_count = 5 },
-        { name = "sql", max_item_count = 3 },
       },
     }
   end,
