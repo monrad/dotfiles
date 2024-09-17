@@ -59,6 +59,9 @@ vim.opt.inccommand = "split"
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
+-- Allow backspace on indent, end of line or insert mode start position
+vim.opt.backspace = "indent,eol,start"
+
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
