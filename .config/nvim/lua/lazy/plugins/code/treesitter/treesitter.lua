@@ -26,6 +26,7 @@ return {
       "ssh_config",
       "templ",
       "terraform",
+      "tmux",
       "toml",
       "vim",
       "vimdoc",
