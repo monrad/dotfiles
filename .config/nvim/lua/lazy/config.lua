@@ -43,7 +43,7 @@ require("lazy").setup({
 	require("lazy.plugins.code.markdown.render-markdown"),
 	-- Git
 	require("lazy.plugins.code.git.gitsigns"),
-	require("lazy.plugins.code.git.gitworktree"),
+	require("lazy.plugins.code.git.git-worktree"),
 	-- Python
 	require("lazy.plugins.code.python.python-venv-selector"),
 	-- require "lazy.plugins.code.python.whichpy",
