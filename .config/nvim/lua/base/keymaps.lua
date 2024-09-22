@@ -30,8 +30,8 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 -- Toggle spell checking
 vim.keymap.set("n", "<leader>ts", function()
-  vim.opt.spell = not vim.o.spell
-  print("Spell checking is", (vim.o.spell and "enabled" or "disabled"))
+	vim.opt.spell = not vim.o.spell
+	print("Spell checking is", (vim.o.spell and "enabled" or "disabled"))
 end, { desc = "[t]oggle [s]pell" })
 
 -- Yank to system clipboard
