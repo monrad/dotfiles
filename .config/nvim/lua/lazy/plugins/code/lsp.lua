@@ -228,6 +228,7 @@ return {
 			ruff = {},
 			ruff_lsp = {},
 			tailwindcss = {},
+			taplo = {},
 			templ = {},
 			tflint = {},
 			yamlls = {},
