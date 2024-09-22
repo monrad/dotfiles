@@ -255,13 +255,16 @@ return {
 			"golangci-lint",
 			"golines",
 			"gotests",
+			"hadolint",
 			"isort",
 			"jq",
+			"jsonlint",
 			"markdownlint",
 			"mypy",
 			"staticcheck",
 			"stylua",
 			"tfsec",
+			"vale",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
