@@ -152,7 +152,22 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
-			-- clangd = {},
+			ansiblels = {},
+			arduino_language_server = {},
+			basedpyright = {
+				settings = {
+					basedpyright = {
+						analysis = {
+							typeCheckingMode = "standard",
+						},
+					},
+				},
+			},
+			bashls = {},
+			bufls = {},
+			docker_compose_language_service = {},
+			dockerls = {},
+			golangci_lint_ls = {},
 			gopls = {
 				settings = {
 					gopls = {
@@ -183,39 +198,9 @@ return {
 					},
 				},
 			},
-			basedpyright = {
-				settings = {
-					basedpyright = {
-						analysis = {
-							typeCheckingMode = "standard",
-						},
-					},
-				},
-			},
-			-- pyright = {},
-			-- rust_analyzer = {},
-			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-			--
-			-- Some languages (like typescript) have entire language plugins that can be useful:
-			--    https://github.com/pmizio/typescript-tools.nvim
-			--
-			-- But for many setups, the LSP (`ts_ls`) will work just fine
-			-- ts_ls = {},
-			--
-			-- yamlls = {
-			--   settings = {
-			--     yaml = {
-			--       schemaStore = {
-			--         -- You must disable built-in schemaStore support if you want to use
-			--         -- this plugin and its advanced options like `ignore`.
-			--         enable = false,
-			--         -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-			--         url = "",
-			--       },
-			--       schemas = require("schemastore").yaml.schemas(),
-			--     },
-			--   },
-			-- },
+			html = {},
+			htmx = {},
+			jinja_lsp = {},
 			jsonls = {
 				settings = {
 					json = {
@@ -224,6 +209,7 @@ return {
 					},
 				},
 			},
+			jsonnet_ls = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
@@ -238,6 +224,13 @@ return {
 					},
 				},
 			},
+			marksman = {},
+			ruff = {},
+			ruff_lsp = {},
+			tailwindcss = {},
+			templ = {},
+			tflint = {},
+			yamlls = {},
 		}
 
 		-- Ensure the servers and tools above are installed
@@ -253,45 +246,22 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"ansible-lint",
-			"ansiblels",
-			"arduino_language_server",
-			"basedpyright",
-			"bashls",
 			"black",
 			"buf",
-			"bufls",
 			"debugpy",
 			"delve",
-			"docker_compose_language_service",
-			"dockerls",
 			"gofumpt",
 			"goimports",
 			"golangci-lint",
-			"golangci_lint_ls",
 			"golines",
-			"gopls",
 			"gotests",
-			"html",
-			"htmx",
 			"isort",
-			"jinja_lsp",
 			"jq",
-			"jsonls",
-			"jsonnet_ls",
-			"lua_ls",
 			"markdownlint",
-			"marksman",
 			"mypy",
-			"ruff",
-			"ruff_lsp",
 			"staticcheck",
 			"stylua",
-			"tailwindcss",
-			"taplo",
-			"templ",
-			"tflint",
 			"tfsec",
-			"yamlls",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
