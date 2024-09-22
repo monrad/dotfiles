@@ -45,7 +45,7 @@ return {
 			markdownlint.args = {
 				"--disable",
 				"MD013",
-				"--", -- Required
+				"--stdin", -- Required
 			}
 			-- Create autocommand which carries out the actual linting
 			-- on the specified events.
