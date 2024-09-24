@@ -262,6 +262,7 @@ return {
 			"jsonlint",
 			"markdownlint",
 			"mypy",
+			"shellcheck",
 			"staticcheck",
 			"stylua",
 			"tfsec",

@@ -12,6 +12,7 @@ return {
 			lint.linters_by_ft["markdown"] = { "markdownlint" }
 			lint.linters_by_ft["rst"] = { "vale" }
 			lint.linters_by_ft["ruby"] = { "ruby" }
+			lint.linters_by_ft["sh"] = { "shellcheck" }
 			lint.linters_by_ft["terraform"] = { "tflint" }
 			lint.linters_by_ft["text"] = { "vale" }
 
