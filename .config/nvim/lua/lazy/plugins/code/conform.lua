@@ -32,7 +32,7 @@ return {
 			}
 		end,
 		formatters_by_ft = {
-			buf = { "buf" },
+			proto = { "buf" },
 			lua = { "stylua" },
 			markdown = { "markdownlint" },
 			templ = { "templ" },
