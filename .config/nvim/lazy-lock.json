@@ -46,7 +46,7 @@
   "oil.nvim": { "branch": "master", "commit": "1360be5fda9c67338331abfcd80de2afbb395bcd" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "precognition.nvim": { "branch": "main", "commit": "8a81c310b4e76b4884fc5350a5741cf683c645c7" },
-  "render-markdown.nvim": { "branch": "main", "commit": "ffbe9f2395eacdce8a9fa967ac0fae75a6204f09" },
+  "render-markdown.nvim": { "branch": "main", "commit": "0fe0f0801e3241dcaf063b65bb6d42b7e561af22" },
   "schemastore.nvim": { "branch": "main", "commit": "274fe3391cd4bdea17df72abfbbc84404b7f7b8d" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
