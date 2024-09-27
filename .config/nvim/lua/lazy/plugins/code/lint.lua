@@ -13,6 +13,7 @@ return {
 			lint.linters_by_ft["rst"] = nil
 			lint.linters_by_ft["ruby"] = { "ruby" }
 			lint.linters_by_ft["sh"] = { "shellcheck" }
+			lint.linters_by_ft["systemd"] = { "systemdlint" }
 			lint.linters_by_ft["terraform"] = { "tflint" }
 			lint.linters_by_ft["text"] = nil
 

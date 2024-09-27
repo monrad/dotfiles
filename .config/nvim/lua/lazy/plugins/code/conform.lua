@@ -32,11 +32,12 @@ return {
 			}
 		end,
 		formatters_by_ft = {
-			proto = { "buf" },
 			lua = { "stylua" },
 			markdown = { "markdownlint" },
+			proto = { "buf" },
 			templ = { "templ" },
 			toml = { "taplo" },
+			yaml = { "prettierd" },
 			python = function(bufnr)
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
 					return { "ruff_format" }
