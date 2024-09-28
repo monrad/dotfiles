@@ -1,6 +1,9 @@
 -- Autoformatting
 return {
 	"stevearc/conform.nvim",
+	dependencies = {
+		"rcarriga/nvim-notify",
+	},
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
 	keys = {
@@ -11,6 +14,16 @@ return {
 			end,
 			mode = "",
 			desc = "[f]ormat buffer",
+		},
+		{
+			"<leader>tf",
+			":FormatToggle!<cr>",
+			desc = "[t]oggle [f]ormat on save buffer",
+		},
+		{
+			"<leader>tF",
+			":FormatToggle<cr>",
+			desc = "[t]oggle [F]ormat on save globally",
 		},
 	},
 	opts = {
@@ -31,6 +44,31 @@ return {
 				lsp_format = lsp_format_opt,
 			}
 		end,
+		vim.api.nvim_create_user_command("FormatToggle", function(args)
+			local notify = require("notify")
+			local function show_notification(message, level)
+				notify(message, level, { title = "conform.nvim" })
+			end
+			local is_global = not args.bang
+			if is_global then
+				vim.g.disable_autoformat = not vim.g.disable_autoformat
+				if vim.g.disable_autoformat then
+					show_notification("Autoformat-on-save disabled globally", "info")
+				else
+					show_notification("Autoformat-on-save enabled globally", "info")
+				end
+			else
+				vim.b.disable_autoformat = not vim.b.disable_autoformat
+				if vim.b.disable_autoformat then
+					show_notification("Autoformat-on-save disabled for this buffer", "info")
+				else
+					show_notification("Autoformat-on-save enabled for this buffer", "info")
+				end
+			end
+		end, {
+			desc = "Toggle autoformat-on-save",
+			bang = true,
+		}),
 		formatters_by_ft = {
 			lua = { "stylua" },
 			markdown = { "markdownlint" },
