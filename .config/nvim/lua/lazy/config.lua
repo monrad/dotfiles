@@ -21,7 +21,7 @@ require("lazy").setup({
 	require("lazy.plugins.code.autopairs"),
 	require("lazy.plugins.code.conform"),
 	require("lazy.plugins.code.debug"),
-	require("lazy.plugins.code.lint"),
+	require("lazy.plugins.code.nvim-lint"),
 	require("lazy.plugins.code.lsp"),
 	require("lazy.plugins.code.trouble"),
 	-- YAML/JSON
