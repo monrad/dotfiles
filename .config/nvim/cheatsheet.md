@@ -11,5 +11,5 @@
 
 | keybinding | description                      |
 | ---------- | -------------------------------- |
-| `<C-x>`    | go to file selection as a split  |
-| `<C-v>`    | go to file selection as a vsplit |
+| `C-x`      | go to file selection as a split  |
+| `C-v`      | go to file selection as a vsplit |
