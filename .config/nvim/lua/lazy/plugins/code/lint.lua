@@ -24,6 +24,12 @@ return {
 				"MD013",
 				"--stdin", -- Required
 			}
+			-- configure systemdlint
+			local systemdlint = require("lint").linters.systemdlint
+			systemdlint.args = {
+				"--messageformat={path}:{line}:{severity}:{id}:{msg}",
+				"--norootfs",
+			}
 			-- Create autocommand which carries out the actual linting
 			-- on the specified events.
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
