@@ -3,6 +3,7 @@ return {
 	-- version = "^2",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"rcarriga/nvim-notify",
 		-- Using Oil as file browser
 		"stevearc/oil.nvim",
 	},
@@ -25,9 +26,10 @@ return {
 	config = function()
 		local Hooks = require("git-worktree.hooks")
 		local config = require("git-worktree.config")
+		local notify = require("notify")
 
 		Hooks.register(Hooks.type.SWITCH, function(path, prev_path)
-			vim.notify("Switched from " .. prev_path .. " to " .. path)
+			notify("Switched from " .. prev_path .. " to " .. path, "info", { title = "git-worktree.nvim" })
 			if vim.fn.expand("%"):find("^oil:///") then
 				require("oil").open(vim.fn.getcwd())
 			else
