@@ -3,7 +3,7 @@ return {
 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 	ft = { "markdown" },
 	keys = {
-		{ "C-p", "<cmd>MarkdownPreviewToggle<cr>", mode = "n" },
+		{ "<leader>tP", "<cmd>MarkdownPreviewToggle<cr>", desc = "[t]oggle [P]review", ft = "markdown" },
 	},
 	build = function()
 		vim.fn["mkdp#util#install"]()
