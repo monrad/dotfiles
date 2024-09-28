@@ -71,7 +71,7 @@ return {
 		}),
 		formatters_by_ft = {
 			lua = { "stylua" },
-			markdown = { "markdownlint" },
+			markdown = { "prettierd" },
 			proto = { "buf" },
 			templ = { "templ" },
 			toml = { "taplo" },
