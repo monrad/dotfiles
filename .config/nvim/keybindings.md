@@ -2,6 +2,11 @@
 
 ## Keybindings
 
+| keybinding | description                    |
+| ---------- | ------------------------------ |
+| `C-i`      | move forward in jump history   |
+| `C-o`      | move backwards in jump history |
+
 ### Telescope
 
 | keybinding | description                      |
