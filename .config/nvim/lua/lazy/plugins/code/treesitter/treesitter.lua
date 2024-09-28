@@ -20,6 +20,7 @@ return {
 			"go",
 			"html",
 			"json",
+			"json5",
 			"lua",
 			"markdown",
 			"markdown_inline",
