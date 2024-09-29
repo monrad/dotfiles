@@ -8,5 +8,8 @@ return {
 		save_key = "git_root_bare",
 		-- relative_path = true,
 		-- separate_by_branch = true,
+		mappings = {
+			open_horizontal = "x",
+		},
 	},
 }
