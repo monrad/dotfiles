@@ -4,6 +4,7 @@
 
 | keybinding | description                                 |
 | ---------- | ------------------------------------------- |
+| `C-a`      | trigger autocompletion                      |
 | `C-i`      | move forward in jump history                |
 | `C-o`      | move backwards in jump history              |
 | `C-x`      | open selection as a split in oil,telescope  |
