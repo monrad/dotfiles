@@ -26,12 +26,6 @@
 	autoStash = true
 [init]
 	defaultBranch = main
-[alias]
-	alias-master-as-main = !git symbolic-ref refs/heads/main refs/heads/master && git symbolic-ref refs/remotes/origin/main refs/remotes/origin/master && git switch main
-    switch-recent = !git branch --sort=-committerdate --format='%(refname:short)' | fzf --preview='git log --date=relative --color main..{}' | xargs git switch
-    rm-merged = !git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" { print $1 }' | xargs -r git branch -D 
-	sync = !git switch main && git pull && git rm-merged
-	list-changed = diff --name-only --diff-filter d
 [advice]
 	statusHints = false
 [status]
@@ -65,5 +59,11 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+[alias]
+	alias-master-as-main = !git symbolic-ref refs/heads/main refs/heads/master && git symbolic-ref refs/remotes/origin/main refs/remotes/origin/master && git switch main
+	switch-recent = !git branch --sort=-committerdate --format='%(refname:short)' | fzf --preview='git log --date=relative --color main..{}' | xargs git switch
+	rm-merged = !git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" { print $1 }' | xargs -r git branch -D 
+	sync = !git switch main && git pull && git rm-merged
+	list-changed = diff --name-only --diff-filter d
 [include]
 	path = custom.inc
