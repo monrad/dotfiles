@@ -65,8 +65,9 @@ vim.opt.backspace = "indent,eol,start"
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- Set spelling languages to english and danish
-vim.opt.spelllang = { "en", "da" }
+-- Set spelling languages to english and not yet danish
+-- vim.opt.spelllang = { "en", "da" }
+vim.opt.spelllang = { "en" }
 
 -- Global settings
 -- Disable healthcheck
