@@ -32,11 +32,12 @@ return {
 		-- Adds other completion capabilities.
 		--  nvim-cmp does not ship with all sources by default. They are split
 		--  into multiple repos for maintenance purposes.
+		"chrisgrieser/cmp-nerdfont",
+		"f3fora/cmp-spell",
 		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-emoji",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-emoji",
-		"chrisgrieser/cmp-nerdfont",
 		"onsails/lspkind.nvim",
 	},
 	config = function()
@@ -131,11 +132,23 @@ return {
 					group_index = 0,
 				},
 				{ name = "nvim_lsp", max_item_count = 10 },
+				{ name = "nvim_lsp", max_item_count = 10 },
 				{ name = "luasnip", max_item_count = 10 },
 				{ name = "path", max_item_count = 5 },
 				{ name = "buffer", max_item_count = 5 },
 				{ name = "emoji", max_item_count = 5 },
 				{ name = "nerdfont", max_item_count = 5 },
+				{
+					name = "spell",
+					max_item_count = 5,
+					keyword_length = 3,
+					option = {
+						keep_all_entries = false,
+						enable_in_context = function()
+							return true
+						end,
+					},
+				},
 			},
 		})
 	end,
