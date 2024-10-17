@@ -20,9 +20,11 @@ require("lazy").setup({
 	require("lazy.plugins.code.autocompletion"),
 	require("lazy.plugins.code.autopairs"),
 	require("lazy.plugins.code.conform"),
+	require("lazy.plugins.code.coverage"),
 	require("lazy.plugins.code.debug"),
-	require("lazy.plugins.code.nvim-lint"),
 	require("lazy.plugins.code.lsp"),
+	require("lazy.plugins.code.neotest"),
+	require("lazy.plugins.code.nvim-lint"),
 	require("lazy.plugins.code.trouble"),
 	-- YAML/JSON
 	require("lazy.plugins.code.yaml.schemastore"),
@@ -36,7 +38,6 @@ require("lazy").setup({
 	require("lazy.plugins.code.lua.luvit-meta"),
 	-- Go
 	require("lazy.plugins.code.go.goimplements"),
-	require("lazy.plugins.code.go.gotests"),
 	require("lazy.plugins.code.go.templ-goto-definition"),
 	-- Markdown
 	require("lazy.plugins.code.markdown.markdown-preview"),
