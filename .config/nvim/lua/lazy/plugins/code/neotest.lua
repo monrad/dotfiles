@@ -162,8 +162,8 @@ return {
 						end
 					end
 				end)
-				return {}
 			end
+			return {}
 		end
 		if opts.adapters then
 			local adapters = {}
