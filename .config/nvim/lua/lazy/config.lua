@@ -10,6 +10,7 @@ require("lazy").setup({
 	require("lazy.plugins.ui.precognition"),
 	require("lazy.plugins.ui.todo-comments"),
 	require("lazy.plugins.ui.tokyonight"),
+	require("lazy.plugins.ui.trouble"),
 	-- base plugins
 	require("lazy.plugins.base.arrow"),
 	require("lazy.plugins.base.telescope"),
@@ -25,7 +26,6 @@ require("lazy").setup({
 	require("lazy.plugins.code.lsp"),
 	require("lazy.plugins.code.neotest"),
 	require("lazy.plugins.code.nvim-lint"),
-	require("lazy.plugins.code.trouble"),
 	-- YAML/JSON
 	require("lazy.plugins.code.yaml.schemastore"),
 	require("lazy.plugins.code.yaml.yaml-companion"),
