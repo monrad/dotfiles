@@ -9,18 +9,19 @@ return {
 	},
 	opt = {},
 	keys = {
-		{ "<leader>gwl", "<cmd>Telescope git_worktree git_worktree<cr>", mode = "n", desc = "[g]it [w]orktree [l]ist" },
+		{ "<leader>gw", "", desc = "+worktree" },
+		{ "<leader>gwl", "<cmd>Telescope git_worktree git_worktree<cr>", mode = "n", desc = "List" },
 		{
 			"<leader>gws",
 			"<cmd>Telescope git_worktree git_worktree<cr>",
 			mode = "n",
-			desc = "[g]it [w]orktree [s]witch",
+			desc = "Switch",
 		},
 		{
 			"<leader>gwc",
 			"<cmd>Telescope git_worktree create_git_worktree<cr>",
 			mode = "n",
-			desc = "[g]it [w]orktree [c]reate",
+			desc = "Create",
 		},
 	},
 	config = function()

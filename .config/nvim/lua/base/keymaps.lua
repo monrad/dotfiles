@@ -29,13 +29,13 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Toggle spell checking
-vim.keymap.set("n", "<leader>ts", function()
+vim.keymap.set("n", "<leader>us", function()
 	vim.opt.spell = not vim.o.spell
 	print("Spell checking is", (vim.o.spell and "enabled" or "disabled"))
-end, { desc = "[t]oggle [s]pell" })
+end, { desc = "Enable Spelling" })
 
 -- Yank to system clipboard
-vim.keymap.set("v", "<leader>y", '"+y', { desc = "[y]ank to system clipboard" })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 
 -- Paste from system clipboard
-vim.keymap.set("n", "<leader>p", '"+p', { desc = "[p]aste from system clipboard" })
+vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })

@@ -1,89 +1,69 @@
 return {
 	"nvim-neotest/neotest",
 	keys = {
+		{ "<leader>t", "", desc = "+test" },
 		{
-			"<leader>rta",
-			function()
-				require("neotest").run.attach()
-			end,
-			desc = "[r]un [t]est [a]ttach",
-		},
-		{
-			"<leader>rtf",
+			"<leader>tt",
 			function()
 				require("neotest").run.run(vim.fn.expand("%"))
 			end,
-			desc = "[r]un [t]est [f]ile",
+			desc = "Run File",
 		},
 		{
-			"<leader>rtA",
+			"<leader>tT",
 			function()
 				require("neotest").run.run(vim.uv.cwd())
 			end,
-			desc = "[r]un [t]est [A]ll files",
+			desc = "Run All Test Files",
 		},
 		{
-			"<leader>rtS",
-			function()
-				require("neotest").run.run({ suite = true })
-			end,
-			desc = "[r]un [t]est [S]uite",
-		},
-		{
-			"<leader>rtn",
+			"<leader>tr",
 			function()
 				require("neotest").run.run()
 			end,
-			desc = "[r]un [t]est [n]earest",
+			desc = "Run Nearest",
 		},
 		{
-			"<leader>rtl",
+			"<leader>tl",
 			function()
 				require("neotest").run.run_last()
 			end,
-			desc = "[r]un [t]est [l]ast",
+			desc = "Run Last",
 		},
 		{
-			"<leader>tts",
+			"<leader>ts",
 			function()
 				require("neotest").summary.toggle()
 			end,
-			desc = "[t]oggle [t]est [s]ummary",
+			desc = "Toggle Summary",
 		},
 		{
-			"<leader>tto",
+			"<leader>to",
 			function()
 				require("neotest").output.open({ enter = true, auto_close = true })
 			end,
-			desc = "[t]oggle [t]est [o]utput",
+			desc = "Show Output",
 		},
 		{
-			"<leader>ttO",
+			"<leader>tO",
 			function()
 				require("neotest").output_panel.toggle()
 			end,
-			desc = "[t]oggle [t]est [O]utput panel",
+			desc = "Toggle Output Panel",
 		},
 		{
-			"<leader>rtt",
+			"<leader>tS",
 			function()
 				require("neotest").run.stop()
 			end,
-			desc = "[r]un [t]est [t]erminate",
+			desc = "Stop",
 		},
 		{
-			"<leader>rtd",
+			"<leader>tw",
 			function()
-				require("neotest").run.run({ suite = false, strategy = "dap" })
+				require("neotest").watch.toggle(vim.fn.expand("%"))
 			end,
-			desc = "[r]un nearest [t]est [d]ebug",
-		},
-		{
-			"<leader>rtD",
-			function()
-				require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" })
-			end,
-			desc = "[r]un [t]est current file [d]ebug",
+			desc = "Toggle Watch",
 		},
 	},
 	dependencies = {

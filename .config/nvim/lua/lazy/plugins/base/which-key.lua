@@ -41,21 +41,23 @@ return {
 		},
 		-- Document existing key chains
 		spec = {
-			{ "<leader>c", group = "[c]ode", mode = { "n", "x" } },
-			{ "<leader>ci", group = "[c]ode [i]ncremental selection", mode = { "n", "x" } },
-			{ "<leader>cg", group = "[c]ode [g]o utils", mode = { "n", "x" } },
-			{ "<leader>d", group = "[d]ocument" },
-			{ "<leader>r", group = "[r]un" },
-			{ "<leader>v", group = "co[v]erage" },
-			{ "<leader>rt", group = "[r]un [t]est" },
-			{ "<leader>s", group = "[s]earch" },
-			{ "<leader>w", group = "[w]orkspace" },
-			{ "<leader>t", group = "[t]oggle" },
-			{ "<leader>tt", group = "[t]oggle [t]est" },
-			{ "<leader>g", group = "[g]it", mode = { "n", "v" } },
-			{ "<leader>n", group = "[n]otifications" },
-			{ "<leader>gw", group = "[g]it [w]orktree" },
-			{ "<leader>gh", group = "[g]it [h]unk", mode = { "n", "v" } },
+			{ "<leader>c", group = "code", mode = { "n", "x" } },
+			{ "<leader>d", group = "debug", mode = { "n", "v" } },
+			{ "<leader>f", group = "file/find", mode = { "n", "v" } },
+			{ "<leader>g", group = "git", mode = { "n", "v" } },
+			{ "<leader>gh", group = "hunk", mode = { "n", "v" } },
+			{ "<leader>s", group = "search", mode = { "n", "v" } },
+			{ "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" }, mode = { "n", "v" } },
+			{ "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
+		},
+	},
+	keys = {
+		{
+			"<leader>?",
+			function()
+				require("which-key").show({ global = false })
+			end,
+			desc = "Buffer Keymaps (which-key)",
 		},
 	},
 }

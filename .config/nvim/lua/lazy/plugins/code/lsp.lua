@@ -52,7 +52,7 @@ return {
 				-- for LSP related items. It sets the mode, buffer and description for us each time.
 				local map = function(keys, func, desc, mode)
 					mode = mode or "n"
-					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
 				end
 
 				-- Jump to the definition of the word under your cursor.
@@ -74,19 +74,19 @@ return {
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
-				-- map("<leader>dS", require("telescope.builtin").lsp_document_symbols, "[d]ocument [S]ymbols")
+				map("<leader>ss", require("telescope.builtin").lsp_document_symbols, "Goto Symbol")
 
 				-- Fuzzy find all the symbols in your current workspace
 				--  Similar to document symbols, except searches over your whole project.
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[w]orkspace [s]ymbols")
+				map("<leader>sS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Goto Symbol (Workspace)")
 
 				-- Rename the variable under your cursor
 				--  Most Language Servers support renaming across files, etc.
-				map("<leader>cr", vim.lsp.buf.rename, "[c]ode [r]ename")
+				map("<leader>cr", vim.lsp.buf.rename, "Rename")
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
-				map("<leader>ca", vim.lsp.buf.code_action, "[c]ode [a]ction", { "n", "x" })
+				map("<leader>ca", vim.lsp.buf.code_action, "Action", { "n", "x" })
 
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header
@@ -126,9 +126,9 @@ return {
 				--
 				-- This may be unwanted, since they displace some of your code
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-					map("<leader>th", function()
+					map("<leader>uh", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-					end, "[t]oggle inlay [h]ints")
+					end, "Toggle Inlay Hints")
 
 					-- Enable inlay hints by default
 					vim.lsp.inlay_hint.enable()

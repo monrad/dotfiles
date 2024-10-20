@@ -4,47 +4,48 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	keys = {
+		{ "<leader>cc", "", desc = "+coverage" },
 		{
-			"<leader>vl",
+			"<leader>ccl",
 			function()
 				require("coverage").load(true)
 			end,
-			desc = "co[v]erage [l]oad",
+			desc = "Load",
 		},
 		{
-			"<leader>vc",
+			"<leader>ccc",
 			function()
 				require("coverage").clear()
 			end,
-			desc = "co[v]erage [c]lear",
+			desc = "Clear",
 		},
 		{
-			"<leader>vw",
+			"<leader>ccw",
 			function()
 				require("coverage").show()
 			end,
-			desc = "co[v]erage sho[w]",
+			desc = "Show",
 		},
 		{
-			"<leader>vh",
+			"<leader>cch",
 			function()
 				require("coverage").hide()
 			end,
-			desc = "co[v]erage [h]ide",
+			desc = "Hide",
 		},
 		{
-			"<leader>vt",
+			"<leader>cct",
 			function()
 				require("coverage").toggle()
 			end,
-			desc = "co[v]erage [t]oggle",
+			desc = "Toggle",
 		},
 		{
-			"<leader>vs",
+			"<leader>ccs",
 			function()
 				require("coverage").summary()
 			end,
-			desc = "co[v]erage [s]ummary",
+			desc = "Summary",
 		},
 	},
 	opts = {},

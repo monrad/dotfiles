@@ -8,22 +8,22 @@ return {
 	cmd = { "ConformInfo" },
 	keys = {
 		{
-			"<leader>f",
+			"<leader>cf",
 			function()
 				require("conform").format({ async = true, lsp_format = "fallback" })
 			end,
 			mode = "",
-			desc = "[f]ormat buffer",
+			desc = "Format",
 		},
 		{
-			"<leader>tf",
+			"<leader>uF",
 			":FormatToggle!<cr>",
-			desc = "[t]oggle [f]ormat on save buffer",
+			desc = "Disable Auto Format (buffer)",
 		},
 		{
-			"<leader>tF",
+			"<leader>uf",
 			":FormatToggle<cr>",
-			desc = "[t]oggle [F]ormat on save globally",
+			desc = "Disable Auto Format (global)",
 		},
 	},
 	opts = {

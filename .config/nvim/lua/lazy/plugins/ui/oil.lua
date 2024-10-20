@@ -29,5 +29,5 @@ return {
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	-- Keys
-	vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", { desc = "browse files/dirs with [o]il" }),
+	vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", { desc = "Browse files/dirs" }),
 }
