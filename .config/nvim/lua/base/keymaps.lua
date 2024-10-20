@@ -39,3 +39,7 @@ vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 
 -- Paste from system clipboard
 vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+
+-- create splits
+vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Split Window Vertical" })
+vim.keymap.set("n", "<leader>-", "<cmd>split<cr>", { desc = "Split Window Horizontal" })
