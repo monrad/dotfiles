@@ -6,7 +6,7 @@ return {
 		},
 		keymaps = {
 			["g?"] = "actions.show_help",
-			["<CR>"] = "actions.select",
+			["<cr>"] = "actions.select",
 			["<C-v>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
 			["<C-x>"] = {
 				"actions.select",
@@ -16,7 +16,7 @@ return {
 			["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
 			["<C-p>"] = "actions.preview",
 			["<C-c>"] = "actions.close",
-			["<C-l>"] = "actions.refresh",
+			["<C-r>"] = "actions.refresh",
 			["-"] = "actions.parent",
 			["_"] = "actions.open_cwd",
 			["`"] = "actions.cd",
@@ -26,6 +26,7 @@ return {
 			["g."] = "actions.toggle_hidden",
 			["g\\"] = "actions.toggle_trash",
 		},
+		use_default_keymaps = false,
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	-- Keys
