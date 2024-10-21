@@ -11,6 +11,7 @@ return {
 		-- Allows extra capabilities provided by nvim-cmp
 		"hrsh7th/cmp-nvim-lsp",
 	},
+	keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
 	config = function()
 		-- Brief Aside: **What is LSP?**
 		--

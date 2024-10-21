@@ -43,3 +43,6 @@ vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" }
 -- create splits
 vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Split Window Vertical" })
 vim.keymap.set("n", "<leader>-", "<cmd>split<cr>", { desc = "Split Window Horizontal" })
+
+-- lazy
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
