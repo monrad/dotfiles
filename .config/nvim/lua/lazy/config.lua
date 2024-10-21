@@ -36,6 +36,7 @@ require("lazy").setup({
 	require("lazy.plugins.code.python"),
 	require("lazy.plugins.code.treesitter"),
 	require("lazy.plugins.code.yaml"),
+	require("lazy.plugins.code.tiny-code-action"),
 
 	ui = {
 		-- If you have a Nerd Font, set icons to an empty table which will use the
