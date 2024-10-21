@@ -10,6 +10,7 @@ require("lazy").setup({
 	require("lazy.plugins.ui.neo-tree"),
 	require("lazy.plugins.ui.noice"),
 	require("lazy.plugins.ui.oil"),
+	require("lazy.plugins.ui.persistence"),
 	require("lazy.plugins.ui.todo-comments"),
 	require("lazy.plugins.ui.tokyonight"),
 	require("lazy.plugins.ui.trouble"),
