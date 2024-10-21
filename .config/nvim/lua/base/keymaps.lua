@@ -83,7 +83,7 @@ vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning"
 vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 -- quit
-vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+vim.keymap.set("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- highlights under cursor
 vim.keymap.set("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
