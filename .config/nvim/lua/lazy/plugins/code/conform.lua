@@ -34,6 +34,10 @@ return {
 			-- languages here or re-enable it for the disabled ones.
 			local disable_filetypes = { c = true, cpp = true }
 			local lsp_format_opt
+			-- Disable with a global or buffer-local variable
+			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+				return
+			end
 			if disable_filetypes[vim.bo[bufnr].filetype] then
 				lsp_format_opt = "never"
 			else
