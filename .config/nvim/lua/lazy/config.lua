@@ -23,7 +23,7 @@ require("lazy").setup({
 	require("lazy.plugins.code.autopairs"),
 	require("lazy.plugins.code.conform"),
 	require("lazy.plugins.code.coverage"),
-	require("lazy.plugins.code.debug"),
+	require("lazy.plugins.code.dap"),
 	require("lazy.plugins.code.lsp"),
 	require("lazy.plugins.code.neotest"),
 	require("lazy.plugins.code.nvim-lint"),
