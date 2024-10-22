@@ -64,7 +64,7 @@ return {
 				map("<leader>cl", vim.lsp.codelens.run, "Run Codelens", { "n", "v" })
 				vim.keymap.set("n", "<leader>cr", function()
 					return ":IncRename " .. vim.fn.expand("<cword>")
-				end, { expr = true })
+				end, { expr = true, desc = "Rename" })
 
 				map("<leader>sS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Goto Symbol (Workspace)")
 				map("<leader>ss", require("telescope.builtin").lsp_document_symbols, "Goto Symbol")
