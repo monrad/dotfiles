@@ -39,6 +39,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"onsails/lspkind.nvim",
+		{ "petertriho/cmp-git", opts = {} },
 	},
 	config = function()
 		-- See `:help cmp`
@@ -63,6 +64,8 @@ return {
 						buffer = "[Buffer]",
 						emoji = "[Emoji]",
 						nerdfont = "[NerdFont]",
+						git = "[Git]",
+						spell = "[Spell]",
 					},
 				}),
 			},
@@ -137,6 +140,7 @@ return {
 				{ name = "buffer", max_item_count = 5 },
 				{ name = "emoji", max_item_count = 5 },
 				{ name = "nerdfont", max_item_count = 5 },
+				{ name = "git" },
 				{
 					name = "spell",
 					max_item_count = 5,
