@@ -12,6 +12,7 @@
 | `]s`       | Go to next misspelled word                  |
 | `[s`       | Go to previous misspelled word              |
 | `z=`       | Spelling suggestions                        |
+| `zg`       | Add spelling to spell list                  |
 
 ### Arrow
 
