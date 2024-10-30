@@ -7,7 +7,9 @@ return {
 		-- Using Oil as file browser
 		"stevearc/oil.nvim",
 	},
-	opt = {},
+	opt = {
+		prefix = "../",
+	},
 	keys = {
 		{ "<leader>gw", "", desc = "+worktree" },
 		{ "<leader>gwl", "<cmd>Telescope git_worktree git_worktree<cr>", mode = "n", desc = "List" },
@@ -27,10 +29,8 @@ return {
 	config = function()
 		local Hooks = require("git-worktree.hooks")
 		local config = require("git-worktree.config")
-		local notify = require("notify")
 
 		Hooks.register(Hooks.type.SWITCH, function(path, prev_path)
-			notify("Switched from " .. prev_path .. " to " .. path, "info", { title = "git-worktree.nvim" })
 			if vim.fn.expand("%"):find("^oil:///") then
 				require("oil").open(vim.fn.getcwd())
 			else
