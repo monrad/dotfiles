@@ -203,7 +203,6 @@ return {
 			},
 			marksman = {},
 			ruff = {},
-			ruff_lsp = {},
 			tailwindcss = {},
 			taplo = {},
 			templ = {},
