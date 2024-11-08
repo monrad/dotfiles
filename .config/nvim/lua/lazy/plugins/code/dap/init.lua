@@ -184,8 +184,12 @@ return {
 		-- Lets do some logging
 		-- require("dap").set_log_level "INFO"
 
-		-- Look for launch.json in .vscode
-		require("dap.ext.vscode").load_launchjs(nil, {})
+		-- setup dap config by VsCode launch.json file
+		local vscode = require("dap.ext.vscode")
+		local json = require("plenary.json")
+		vscode.json_decode = function(str)
+			return vim.json.decode(json.json_strip_comments(str))
+		end
 
 		-- Dap UI setup
 		-- For more information, see |:help nvim-dap-ui|
