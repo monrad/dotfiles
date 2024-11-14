@@ -103,9 +103,7 @@ return {
 				--
 				-- This may be unwanted, since they displace some of your code
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-					map("<leader>uh", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-					end, "Toggle Inlay Hints")
+					Snacks.toggle.inlay_hints():map("<leader>uh")
 
 					-- Enable inlay hints by default
 					vim.lsp.inlay_hint.enable()
@@ -193,11 +191,26 @@ return {
 				-- capabilities = {},
 				settings = {
 					Lua = {
+						workspace = {
+							checkThirdParty = false,
+						},
+						codeLens = {
+							enable = true,
+						},
 						completion = {
 							callSnippet = "Replace",
 						},
-						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-						-- diagnostics = { disable = { 'missing-fields' } },
+						doc = {
+							privateName = { "^_" },
+						},
+						hint = {
+							enable = true,
+							setType = false,
+							paramType = true,
+							paramName = "Disable",
+							semicolon = "Disable",
+							arrayIndex = "Disable",
+						},
 					},
 				},
 			},
