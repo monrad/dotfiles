@@ -40,17 +40,20 @@ return {
 		"hrsh7th/cmp-path",
 		"onsails/lspkind.nvim",
 		{ "petertriho/cmp-git", opts = {} },
+		{ "roobert/tailwindcss-colorizer-cmp.nvim", opts = {} },
 	},
 	config = function()
 		-- See `:help cmp`
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
+		local tailwindcss = require("tailwindcss-colorizer-cmp")
 		luasnip.config.setup({})
 
 		cmp.setup({
 			formatting = {
 				format = lspkind.cmp_format({
+					before = tailwindcss.formatter,
 					mode = "symbol_text",
 					maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 					-- can also be a function to dynamically calculate max width such as

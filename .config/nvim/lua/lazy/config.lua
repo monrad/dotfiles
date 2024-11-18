@@ -9,6 +9,7 @@ require("lazy").setup({
 	require("lazy.plugins.ui.lualine"),
 	require("lazy.plugins.ui.neo-tree"),
 	require("lazy.plugins.ui.noice"),
+	require("lazy.plugins.ui.nvim-colorizer"),
 	require("lazy.plugins.ui.octo"),
 	require("lazy.plugins.ui.oil"),
 	require("lazy.plugins.ui.persistence"),
