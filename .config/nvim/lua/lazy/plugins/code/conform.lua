@@ -77,7 +77,7 @@ return {
 			lua = { "stylua" },
 			markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
 			proto = { "buf" },
-			templ = { "templ" },
+			templ = { "rustywind", "templ" },
 			toml = { "taplo" },
 			yaml = { "prettierd" },
 			python = function(bufnr)

@@ -255,6 +255,7 @@ return {
 			"markdownlint-cli2",
 			"mypy",
 			"prettierd",
+			"rustywind",
 			"shellcheck",
 			"staticcheck",
 			"stylua",
