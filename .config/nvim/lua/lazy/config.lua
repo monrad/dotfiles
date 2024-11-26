@@ -40,6 +40,7 @@ require("lazy").setup({
 	require("lazy.plugins.code.python"),
 	require("lazy.plugins.code.treesitter"),
 	require("lazy.plugins.code.yaml"),
+	require("lazy.plugins.code.ts-comments"),
 	require("lazy.plugins.code.tiny-code-action"),
 
 	ui = {
