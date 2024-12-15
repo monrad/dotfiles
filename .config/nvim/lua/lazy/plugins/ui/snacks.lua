@@ -13,6 +13,7 @@ return {
 			timeout = 5000,
 		},
 		quickfile = { enabled = true },
+		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
