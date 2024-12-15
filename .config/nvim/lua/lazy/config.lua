@@ -4,7 +4,6 @@ require("lazy").setup({
 	-- ui plugins
 	require("lazy.plugins.ui.grug-far"),
 	require("lazy.plugins.ui.inc-rename"),
-	require("lazy.plugins.ui.indent-blanklines"),
 	require("lazy.plugins.ui.lazygit"),
 	require("lazy.plugins.ui.lualine"),
 	require("lazy.plugins.ui.neo-tree"),

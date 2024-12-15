@@ -5,20 +5,20 @@ return {
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
+		dashboard = { enabled = true },
+		indent = { enabled = true },
+		input = { enabled = true },
 		notifier = {
 			enabled = true,
 			timeout = 5000,
 		},
 		quickfile = { enabled = true },
+		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
-		styles = {
-			notification = {
-				wo = { wrap = true }, -- Wrap notifications
-			},
-		},
 		terminal = {
 			win = {
+				relative = "editor",
 				border = "rounded",
 				position = "float",
 			},
@@ -75,6 +75,20 @@ return {
 			end,
 			desc = "Prev Reference",
 			mode = { "n", "t" },
+		},
+		{
+			"<leader>.",
+			function()
+				Snacks.scratch()
+			end,
+			desc = "Toggle Scratch Buffer",
+		},
+		{
+			"<leader>S",
+			function()
+				Snacks.scratch.select()
+			end,
+			desc = "Select Scratch Buffer",
 		},
 	},
 	init = function()
