@@ -139,7 +139,7 @@ return {
 				},
 			},
 			bashls = {},
-			bufls = {},
+			buf_ls = {},
 			docker_compose_language_service = {},
 			dockerls = {},
 			golangci_lint_ls = {},
@@ -237,7 +237,7 @@ return {
 		vim.list_extend(ensure_installed, {
 			"ansible-lint",
 			"black",
-			"buf",
+			"buf_ls",
 			"debugpy",
 			"delve",
 			"gofumpt",
