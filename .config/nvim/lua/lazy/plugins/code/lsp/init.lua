@@ -139,7 +139,7 @@ return {
 				},
 			},
 			bashls = {},
-			buf = {},
+			buf_ls = {},
 			docker_compose_language_service = {},
 			dockerls = {},
 			golangci_lint_ls = {},
@@ -237,7 +237,7 @@ return {
 		vim.list_extend(ensure_installed, {
 			"ansible-lint",
 			"black",
-			"buf_ls",
+			"buf",
 			"debugpy",
 			"delve",
 			"gofumpt",
@@ -266,6 +266,8 @@ return {
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
+			ensure_installed = servers,
+			automatic_installation = true,
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
