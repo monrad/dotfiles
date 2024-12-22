@@ -11,6 +11,12 @@ return {
 		end
 		require("lualine").setup({
 			sections = {
+				lualine_c = {
+					{
+						"filename",
+						path = 1,
+					},
+				},
 				lualine_x = {
 					get_schema,
 					"encoding",
