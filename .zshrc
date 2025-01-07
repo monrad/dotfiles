@@ -65,7 +65,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(${HOMEBREW_PREFIX}/bin/pyenv init --path)"
 
-# Only set iterm2 specific config if we are running iterm2
+# Only autostart tmux if in iterm
 if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
         # tmux setup
         ZSH_TMUX_AUTOSTART="true"
