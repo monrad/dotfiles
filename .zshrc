@@ -65,9 +65,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(${HOMEBREW_PREFIX}/bin/pyenv init --path)"
 
-# tmux setup
-ZSH_TMUX_AUTOSTART="true"
-ZSH_TMUX_DEFAULT_SESSION_NAME="base"
+# Only set iterm2 specific config if we are running iterm2
+if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
+        # tmux setup
+        ZSH_TMUX_AUTOSTART="true"
+        ZSH_TMUX_DEFAULT_SESSION_NAME="base"
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
