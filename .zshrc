@@ -116,15 +116,6 @@ alias l='ls -CF --color'
 # alias to update Powerlevel10K
 alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
 
-# Only set kitty specific config if we are running kitty
-if [ "$TERM" = "xterm-kitty" ]; then
-        #Aliases
-        alias kssh="kitty +kitten ssh" #short alias for kitty ssh
-        alias xssh="TERM=xterm-color /usr/bin/ssh"
-        #Bindkeys
-        bindkey "\e[1;3D" backward-word # ⌥←
-        bindkey "\e[1;3C" forward-word # ⌥→
-fi
 # Only set iterm2 specific config if we are running iterm2
 if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
         alias i2black="it2setcolor bg 000000"
