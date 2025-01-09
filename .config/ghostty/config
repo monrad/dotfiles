@@ -1,0 +1,4 @@
+theme = tokyonight
+
+# Enable option as meta for nvim
+macos-option-as-alt = true
