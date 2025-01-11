@@ -6,7 +6,6 @@ require("lazy").setup({
 	require("lazy.plugins.ui.inc-rename"),
 	require("lazy.plugins.ui.lazygit"),
 	require("lazy.plugins.ui.lualine"),
-	require("lazy.plugins.ui.neo-tree"),
 	require("lazy.plugins.ui.noice"),
 	require("lazy.plugins.ui.nvim-colorizer"),
 	require("lazy.plugins.ui.octo"),
