@@ -81,3 +81,9 @@ vim.g.loaded_node_provider = 0
 
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
+
+-- Set title if term is ghostty
+if vim.fn.getenv("TERM_PROGRAM") == "ghostty" then
+	vim.opt.title = true
+	vim.opt.titlestring = "%{fnamemodify(getcwd(), ':t')}"
+end

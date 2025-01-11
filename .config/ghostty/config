@@ -1,4 +1,10 @@
 theme = tokyonight
 
+background-opacity = 0.96
+background-blur-radius = 40
+
 # Enable option as meta for nvim
 macos-option-as-alt = true
+
+# Use the titlebar for tabs
+macos-titlebar-style = tabs
