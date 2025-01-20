@@ -55,11 +55,7 @@ return {
 
 				map("K", vim.lsp.buf.hover, "Hover")
 				map("gD", vim.lsp.buf.declaration, "Goto Declaration")
-				map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
 				map("gK", vim.lsp.buf.signature_help, "Signature Help")
-				map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
-				map("gr", require("telescope.builtin").lsp_references, "References")
-				map("gy", require("telescope.builtin").lsp_type_definitions, "Goto T[y]pe Definition")
 
 				map("<leader>cL", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
 				map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "v", "x" })
@@ -67,9 +63,6 @@ return {
 				vim.keymap.set("n", "<leader>cr", function()
 					return ":IncRename " .. vim.fn.expand("<cword>")
 				end, { expr = true, desc = "Rename" })
-
-				map("<leader>sS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Goto Symbol (Workspace)")
-				map("<leader>ss", require("telescope.builtin").lsp_document_symbols, "Goto Symbol")
 
 				-- The following two autocommands are used to highlight references of the
 				-- word under your cursor when your cursor rests there for a little while.
