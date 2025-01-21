@@ -302,6 +302,7 @@ return {
 			function()
 				Snacks.picker.undo()
 			end,
+			desc = "Undo",
 		},
 		{
 			"<leader>un",
