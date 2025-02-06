@@ -25,7 +25,7 @@ export GOPATH=`go env GOPATH`
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOBIN"
 
-# Add .local bin path (for Poetry)
+# Add .local bin path
 export PATH="$HOME/.local/bin:$PATH"
 
 # Add whois bin path
