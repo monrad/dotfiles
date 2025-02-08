@@ -19,6 +19,8 @@ return {
 			"gitignore",
 			"go",
 			"html",
+			"jinja",
+			"jinja_inline",
 			"json",
 			"json5",
 			"lua",
