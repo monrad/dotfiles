@@ -143,6 +143,7 @@ return {
 					gopls = {
 						analyses = {
 							useany = true,
+							modernize = true,
 						},
 						codelenses = {
 							gc_details = true, -- Show a code lens toggling the display of gc's choices.
@@ -161,8 +162,9 @@ return {
 						usePlaceholders = true,
 						completeUnimported = true,
 						staticcheck = true,
-						semanticTokens = true,
-						noSemanticString = true, -- disable semantic string tokens so we can use treesitter highlight injection
+						semanticTokens = false,
+						semanticTokenTypes = { keyword = true },
+						semanticTokenModifiers = { definition = true },
 						vulncheck = "Imports",
 						gofumpt = true,
 					},
