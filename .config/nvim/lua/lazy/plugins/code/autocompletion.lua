@@ -76,7 +76,7 @@ return {
 		},
 
 		sources = {
-			default = { "spell", "git", "lsp", "path", "snippets", "lazydev" },
+			default = { "buffer", "spell", "git", "lsp", "path", "snippets", "lazydev" },
 			providers = {
 				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 				git = {
