@@ -22,8 +22,8 @@ require("lazy").setup({
 	require("lazy.plugins.base.which-key"),
 	-- code plugins
 	require("lazy.plugins.code.ansible"),
-	require("lazy.plugins.code.autocompletion"),
 	require("lazy.plugins.code.autopairs"),
+	require("lazy.plugins.code.blink-cmp"),
 	require("lazy.plugins.code.conform"),
 	require("lazy.plugins.code.coverage"),
 	require("lazy.plugins.code.dap"),
@@ -35,10 +35,10 @@ require("lazy").setup({
 	require("lazy.plugins.code.neotest"),
 	require("lazy.plugins.code.nvim-lint"),
 	require("lazy.plugins.code.python"),
-	require("lazy.plugins.code.treesitter"),
-	require("lazy.plugins.code.yaml"),
-	require("lazy.plugins.code.ts-comments"),
 	require("lazy.plugins.code.tiny-code-action"),
+	require("lazy.plugins.code.treesitter"),
+	require("lazy.plugins.code.ts-comments"),
+	require("lazy.plugins.code.yaml"),
 
 	ui = {
 		-- If you have a Nerd Font, set icons to an empty table which will use the

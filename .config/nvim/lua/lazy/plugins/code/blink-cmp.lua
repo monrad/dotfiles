@@ -120,7 +120,7 @@ return {
 		--
 		-- See :h blink-cmp-config-fuzzy for more information
 		fuzzy = {
-			implementation = "lua",
+			implementation = "prefer_rust_with_warning",
 			sorts = {
 				function(a, b)
 					local sort = require("blink.cmp.fuzzy.sort")
@@ -141,36 +141,21 @@ return {
 		completion = {
 			menu = {
 				draw = {
+					-- columns = {
+					-- 	{ "kind_icon", "kind" },
+					-- 	{ "label", "label_description", gap = 1 },
+					-- },
 					components = {
 						kind_icon = {
-							text = function(ctx)
-								local icon = ctx.kind_icon
-								if vim.tbl_contains({ "Path" }, ctx.source_name) then
-									local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
-									if dev_icon then
-										icon = dev_icon
-									end
-								else
-									icon = require("lspkind").symbolic(ctx.kind, {
-										mode = "symbol",
-									})
-								end
-
-								return icon .. ctx.icon_gap
+							text = function(item)
+								local kind = require("lspkind").symbol_map[item.kind] or ""
+								return kind .. " "
 							end,
-
-							-- Optionally, use the highlight groups from nvim-web-devicons
-							-- You can also add the same function for `kind.highlight` if you want to
-							-- keep the highlight groups in sync with the icons.
-							highlight = function(ctx)
-								local hl = ctx.kind_hl
-								if vim.tbl_contains({ "Path" }, ctx.source_name) then
-									local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
-									if dev_icon then
-										hl = dev_hl
-									end
-								end
-								return hl
+						},
+						label_description = {
+							width = { max = 50 },
+							text = function(ctx)
+								return ctx.label_description ~= "" and ctx.label_description or ctx.item.detail
 							end,
 						},
 					},
