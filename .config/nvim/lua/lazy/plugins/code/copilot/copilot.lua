@@ -18,7 +18,10 @@ return {
 			end,
 			set = function(state)
 				if state then
-					require("copilot").setup() -- setting up for the very first time
+					require("copilot").setup({
+						suggestion = { enabled = false },
+						panel = { enabled = false },
+					})
 					require("copilot.command").enable()
 					vim.g.copilot_enabled = true
 				else

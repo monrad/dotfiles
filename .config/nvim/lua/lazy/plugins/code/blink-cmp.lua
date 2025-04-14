@@ -37,6 +37,7 @@ return {
 		"onsails/lspkind.nvim",
 		"ribru17/blink-cmp-spell",
 		"folke/lazydev.nvim",
+		"giuxtaposition/blink-cmp-copilot",
 	},
 	--- @module 'blink.cmp'
 	--- @type blink.cmp.Config
@@ -76,7 +77,7 @@ return {
 		},
 
 		sources = {
-			default = { "buffer", "spell", "git", "lsp", "path", "snippets", "lazydev" },
+			default = { "buffer", "spell", "git", "lsp", "path", "snippets", "lazydev", "copilot" },
 			providers = {
 				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 				git = {
@@ -106,6 +107,12 @@ return {
 							return in_spell_capture
 						end,
 					},
+				},
+				copilot = {
+					name = "copilot",
+					module = "blink-cmp-copilot",
+					score_offset = 100,
+					async = true,
 				},
 			},
 		},
@@ -139,17 +146,47 @@ return {
 		signature = { enabled = true },
 
 		completion = {
+			ghost_text = {
+				enabled = true,
+			},
 			menu = {
 				draw = {
 					-- columns = {
 					-- 	{ "kind_icon", "kind" },
 					-- 	{ "label", "label_description", gap = 1 },
 					-- },
+					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
 					components = {
 						kind_icon = {
-							text = function(item)
-								local kind = require("lspkind").symbol_map[item.kind] or ""
-								return kind .. " "
+							text = function(ctx)
+								local lspkind = require("lspkind")
+								local icon = ctx.kind_icon
+								if vim.tbl_contains({ "Path" }, ctx.source_name) then
+									local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+									if dev_icon then
+										icon = dev_icon
+									end
+								else
+									icon = require("lspkind").symbolic(ctx.kind, {
+										mode = "symbol",
+									})
+								end
+
+								return icon .. ctx.icon_gap
+							end,
+
+							-- Optionally, use the highlight groups from nvim-web-devicons
+							-- You can also add the same function for `kind.highlight` if you want to
+							-- keep the highlight groups in sync with the icons.
+							highlight = function(ctx)
+								local hl = ctx.kind_hl
+								if vim.tbl_contains({ "Path" }, ctx.source_name) then
+									local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+									if dev_icon then
+										hl = dev_hl
+									end
+								end
+								return hl
 							end,
 						},
 						label_description = {
