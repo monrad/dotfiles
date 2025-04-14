@@ -25,6 +25,7 @@ require("lazy").setup({
 	require("lazy.plugins.code.autopairs"),
 	require("lazy.plugins.code.blink-cmp"),
 	require("lazy.plugins.code.conform"),
+	require("lazy.plugins.code.copilot"),
 	require("lazy.plugins.code.coverage"),
 	require("lazy.plugins.code.dap"),
 	require("lazy.plugins.code.git"),
