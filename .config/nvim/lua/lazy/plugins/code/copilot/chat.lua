@@ -44,29 +44,7 @@ return {
 					normal = "g?",
 				},
 			},
-			config = function(_, opts)
-				local chat = require("CopilotChat")
-				chat.setup(opts)
-
-				local select = require("CopilotChat.select")
-				vim.api.nvim_create_user_command("CopilotChatVisual", function(args)
-					chat.ask(args.args, { selection = select.visual })
-				end, { nargs = "*", range = true })
-
-				-- Inline chat with Copilot
-				vim.api.nvim_create_user_command("CopilotChatInline", function(args)
-					chat.ask(args.args, {
-						selection = select.visual,
-						window = {
-							layout = "float",
-							relative = "cursor",
-							width = 1,
-							height = 0.4,
-							row = 1,
-						},
-					})
-				end, { nargs = "*", range = true })
-
+			config = function()
 				-- Restore CopilotChatBuffer
 				vim.api.nvim_create_user_command("CopilotChatBuffer", function(args)
 					chat.ask(args.args, { selection = select.buffer })
@@ -115,19 +93,6 @@ return {
 			{ "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
 			{ "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
 			{ "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
-			-- Chat with Copilot in visual mode
-			{
-				"<leader>av",
-				":CopilotChatVisual",
-				mode = "x",
-				desc = "CopilotChat - Open in vertical split",
-			},
-			{
-				"<leader>ax",
-				":CopilotChatInline",
-				mode = "x",
-				desc = "CopilotChat - Inline chat",
-			},
 			-- Custom input for CopilotChat
 			{
 				"<leader>ai",

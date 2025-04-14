@@ -15,7 +15,7 @@ return {
 		},
 		-- Document existing key chains
 		spec = {
-			{ "<leader>a", group = "ai" },
+			{ "<leader>a", group = "ai", mode = { "n", "x" } },
 			{ "<leader>c", group = "code", mode = { "n", "x" } },
 			{ "<leader>d", group = "debug", mode = { "n", "v" } },
 			{ "<leader>f", group = "file/find", mode = { "n", "v" } },
