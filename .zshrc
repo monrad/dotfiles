@@ -115,7 +115,11 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew fzf pyenv macos tmux virtualenv golang)
+plugins=(git fzf virtualenv golang)
+
+if [[ $OSTYPE == darwin* ]]; then
+    plugins+=( brew pyenv tmux pyenv )
+fi
 
 source $ZSH/oh-my-zsh.sh
 
