@@ -20,3 +20,5 @@ echo "symlink zshrc"
 ln -s --relative .zshrc "$HOME"/.zshrc
 echo "symlink p10k.zsh"
 ln -s --relative .p10k.zsh "$HOME"/.p10k.zsh
+echo "switch shell to zsh"
+sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
