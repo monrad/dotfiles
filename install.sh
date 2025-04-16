@@ -26,5 +26,3 @@ echo "download and install git delta"
 wget https://github.com/dandavison/delta/releases/download/0.18.2/git-delta_0.18.2_amd64.deb
 sudo dpkg -i git-delta_0.18.2_amd64.deb
 rm git-delta_0.18.2_amd64.deb
-
-
