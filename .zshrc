@@ -88,7 +88,7 @@ if [[ -f $HOME/.bm.zsh ]]; then
     source $HOME/.bm.zsh
 fi
 # Set editor to Neovim if binary is there
-if [[ -f /opt/homebrew/bin/nvim ]]; then
+if (($+commands[nvim])); then
     export EDITOR=nvim
 fi
 
