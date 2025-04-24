@@ -177,7 +177,7 @@ return {
 		})
 
 		-- Lets do some logging
-		-- require("dap").set_log_level "INFO"
+		-- require("dap").set_log_level("DEBUG")
 
 		-- setup dap config by VsCode launch.json file
 		local vscode = require("dap.ext.vscode")
