@@ -21,6 +21,7 @@ require("lazy").setup({
 	require("lazy.plugins.base.vim-sleuth"),
 	require("lazy.plugins.base.which-key"),
 	-- code plugins
+	require("lazy.plugins.code.ai"),
 	require("lazy.plugins.code.ansible"),
 	require("lazy.plugins.code.autopairs"),
 	require("lazy.plugins.code.blink-cmp"),
