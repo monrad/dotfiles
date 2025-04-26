@@ -146,9 +146,6 @@ return {
 		signature = { enabled = true },
 
 		completion = {
-			ghost_text = {
-				enabled = true,
-			},
 			menu = {
 				draw = {
 					-- columns = {
@@ -159,7 +156,6 @@ return {
 					components = {
 						kind_icon = {
 							text = function(ctx)
-								local lspkind = require("lspkind")
 								local icon = ctx.kind_icon
 								if vim.tbl_contains({ "Path" }, ctx.source_name) then
 									local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
