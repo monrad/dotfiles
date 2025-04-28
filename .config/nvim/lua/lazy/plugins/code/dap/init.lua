@@ -176,6 +176,9 @@ return {
 			},
 		})
 
+		-- setup virtual text
+		require("nvim-dap-virtual-text").setup()
+
 		-- Lets do some logging
 		-- require("dap").set_log_level("DEBUG")
 
