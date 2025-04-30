@@ -1,5 +1,9 @@
 return {
 	"olimorris/codecompanion.nvim",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-treesitter/nvim-treesitter",
+	},
 	opts = {
 		log_level = debug,
 		extensions = {
@@ -13,8 +17,13 @@ return {
 			},
 		},
 	},
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-treesitter/nvim-treesitter",
+	keys = {
+		{
+			"<leader>ac",
+			function()
+				require("codecompanion").toggle()
+			end,
+			desc = "CodeCompanion - Toogle Chat",
+		},
 	},
 }
