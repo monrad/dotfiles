@@ -217,6 +217,7 @@ return {
 			templ = {},
 			tflint = {},
 			yamlls = {},
+			postgres_lsp = {},
 		}
 
 		-- Ensure the servers and tools above are installed
@@ -254,6 +255,7 @@ return {
 			"markdownlint-cli2",
 			"mypy",
 			"pgformatter",
+			"postgrestools",
 			"prettierd",
 			"rustywind",
 			"shellcheck",
