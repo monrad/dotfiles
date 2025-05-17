@@ -99,6 +99,7 @@ return {
 			templ = { "rustywind", "templ" },
 			toml = { "taplo" },
 			yaml = { "prettierd" },
+			sql = { "pg_format" },
 			python = function(bufnr)
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
 					return { "ruff_organize_imports", "ruff_format" }

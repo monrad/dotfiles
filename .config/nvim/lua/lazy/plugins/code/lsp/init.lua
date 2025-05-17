@@ -253,6 +253,7 @@ return {
 			"markdownlint",
 			"markdownlint-cli2",
 			"mypy",
+			"pgformatter",
 			"prettierd",
 			"rustywind",
 			"shellcheck",
