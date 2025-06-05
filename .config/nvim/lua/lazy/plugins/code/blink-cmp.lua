@@ -130,6 +130,7 @@ return {
 					---@module "cmp_go_deep"
 					---@type cmp_go_deep.Options
 					opts = {
+						filetypes = { "go", "templ" },
 						-- See below for configuration options
 					},
 				},
