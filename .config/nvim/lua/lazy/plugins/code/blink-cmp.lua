@@ -34,6 +34,8 @@ return {
 			"Kaiser-Yang/blink-cmp-git",
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
+		{ "samiulsami/cmp-go-deep", dependencies = { "kkharji/sqlite.lua" } },
+		{ "saghen/blink.compat" },
 		"onsails/lspkind.nvim",
 		"ribru17/blink-cmp-spell",
 		"folke/lazydev.nvim",
@@ -77,7 +79,7 @@ return {
 		},
 
 		sources = {
-			default = { "buffer", "spell", "git", "lsp", "path", "snippets", "lazydev", "copilot" },
+			default = { "buffer", "spell", "git", "lsp", "go_deep", "path", "snippets", "lazydev", "copilot" },
 			providers = {
 				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 				git = {
@@ -120,6 +122,17 @@ return {
 					score_offset = 100,
 					async = true,
 				},
+				go_deep = {
+					name = "go_deep",
+					module = "blink.compat.source",
+					min_keyword_length = 3,
+					max_items = 5,
+					---@module "cmp_go_deep"
+					---@type cmp_go_deep.Options
+					opts = {
+						-- See below for configuration options
+					},
+				},
 			},
 			per_filetype = {
 				codecompanion = { "codecompanion" },
@@ -157,11 +170,15 @@ return {
 		completion = {
 			menu = {
 				draw = {
+					columns = {
+						{ "kind_icon", "label", "label_description", gap = 1 },
+						{ "kind", "source_name", gap = 1 },
+					},
 					-- columns = {
 					-- 	{ "kind_icon", "kind" },
 					-- 	{ "label", "label_description", gap = 1 },
 					-- },
-					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+					-- columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
 					components = {
 						kind_icon = {
 							text = function(ctx)
