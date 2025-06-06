@@ -8,7 +8,7 @@
   "blink.cmp": { "branch": "main", "commit": "022521a8910a5543b0251b21c9e1a1e989745796" },
   "blink.compat": { "branch": "main", "commit": "1454f14a8d855a578ceeba77c62538fa1459a67c" },
   "cmp-go-deep": { "branch": "master", "commit": "d2901e0b23d112448273dc1ef631688ae9fe6922" },
-  "codecompanion.nvim": { "branch": "main", "commit": "01b2841d7791376e23728d9faf657fe999e6c209" },
+  "codecompanion.nvim": { "branch": "main", "commit": "ecf07d4a914f44455b5098acd49746b8dc5375f0" },
   "conform.nvim": { "branch": "master", "commit": "0e93e0d12d2f7ebdea9e3e444dfaff0050cefbe6" },
   "copilot.lua": { "branch": "master", "commit": "c1bb86abbed1a52a11ab3944ef00c8410520543d" },
   "git-worktree.nvim": { "branch": "main", "commit": "3ad8c17a3d178ac19be925284389c14114638ebb" },
