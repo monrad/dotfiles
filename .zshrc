@@ -26,6 +26,9 @@ if [[ $OSTYPE == darwin* ]]; then
     # brew coreutils, like sha256sum
     export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
 
+    # Add cargo bin path
+    export PATH="$HOME/.cargo/bin/:$PATH"
+
     # pyenv setup
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
