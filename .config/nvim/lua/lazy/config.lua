@@ -15,6 +15,7 @@ require("lazy").setup({
 	require("lazy.plugins.ui.todo-comments"),
 	require("lazy.plugins.ui.tokyonight"),
 	require("lazy.plugins.ui.trouble"),
+	require("lazy.plugins.ui.vim-coach"),
 	-- base plugins
 	require("lazy.plugins.base.arrow"),
 	require("lazy.plugins.base.telescope"),

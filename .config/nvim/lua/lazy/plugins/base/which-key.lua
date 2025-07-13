@@ -21,6 +21,7 @@ return {
 			{ "<leader>f", group = "file/find", mode = { "n", "v" } },
 			{ "<leader>g", group = "git", mode = { "n", "v" } },
 			{ "<leader>gh", group = "hunk", mode = { "n", "v" } },
+			{ "<leader>h", group = "vim coach", mode = { "n" } },
 			{ "<leader>q", group = "quit/session", mode = { "n", "v" } },
 			{ "<leader>s", group = "search", mode = { "n", "v" } },
 			{ "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" }, mode = { "n", "v" } },
