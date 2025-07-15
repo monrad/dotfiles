@@ -199,5 +199,10 @@ return {
 
 		-- Install golang specific config
 		require("dap-go").setup()
+		-- Setup python with uv
+		require("dap-python").setup("uv")
+		-- table.insert(require("dap").configurations.python, {
+		-- 	justMyCode = false,
+		-- })
 	end,
 }
