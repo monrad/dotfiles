@@ -83,7 +83,9 @@ return {
 	},
 	opts = {
 		adapters = {
-			["neotest-python"] = {},
+			["neotest-python"] = {
+				args = { "-n0" },
+			},
 			["neotest-golang"] = {
 				go_test_args = {
 					"-v",
