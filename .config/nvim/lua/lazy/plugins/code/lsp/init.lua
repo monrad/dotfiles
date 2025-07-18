@@ -174,7 +174,6 @@ return {
 					},
 				},
 				html = {},
-				htmx = {},
 				jinja_lsp = {},
 				jsonls = {
 					settings = {
