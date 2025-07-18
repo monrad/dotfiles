@@ -109,120 +109,126 @@ return {
 			end,
 		})
 
-		-- Enable the following language servers
-		--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-		--
-		--  Add any additional override configuration in the following tables. Available keys are:
-		--  - cmd (table): Override the default command used to start the server
-		--  - filetypes (table): Override the default list of associated filetypes for the server
-		--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-		--  - settings (table): Override the default settings passed when initializing the server.
-		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-		local servers = {
-			ansiblels = {},
-			arduino_language_server = {},
-			basedpyright = {
-				settings = {
-					basedpyright = {
-						analysis = {
-							typeCheckingMode = "standard",
-						},
-					},
-				},
-			},
-			bashls = {},
-			buf_ls = {},
-			docker_compose_language_service = {},
-			dockerls = {},
-			golangci_lint_ls = {},
-			gopls = {
-				settings = {
-					gopls = {
-						analyses = {
-							useany = true,
-							modernize = true,
-						},
-						codelenses = {
-							gc_details = true, -- Show a code lens toggling the display of gc's choices.
-							test = true,
-							run_govulncheck = true,
-						},
-						hints = {
-							assignVariableTypes = true,
-							compositeLiteralFields = true,
-							compositeLiteralTypes = true,
-							constantValues = true,
-							functionTypeParameters = true,
-							parameterNames = true,
-							rangeVariableTypes = true,
-						},
-						usePlaceholders = true,
-						completeUnimported = true,
-						staticcheck = true,
-						semanticTokens = false,
-						semanticTokenTypes = { keyword = true },
-						semanticTokenModifiers = { definition = true },
-						vulncheck = "Imports",
-						gofumpt = true,
-					},
-				},
-			},
-			html = {},
-			htmx = {},
-			jinja_lsp = {},
-			jsonls = {
-				settings = {
-					json = {
-						schemas = require("schemastore").json.schemas(),
-						validate = { enable = true },
-					},
-				},
-			},
-			jsonnet_ls = {},
-			lua_ls = {
-				-- cmd = {...},
-				-- filetypes = { ...},
-				-- capabilities = {},
-				settings = {
-					Lua = {
-						workspace = {
-							checkThirdParty = false,
-						},
-						codeLens = {
-							enable = true,
-						},
-						completion = {
-							callSnippet = "Replace",
-						},
-						doc = {
-							privateName = { "^_" },
-						},
-						hint = {
-							enable = true,
-							setType = false,
-							paramType = true,
-							paramName = "Disable",
-							semicolon = "Disable",
-							arrayIndex = "Disable",
-						},
-					},
-				},
-			},
-			marksman = {},
-			ruff = {},
-			tailwindcss = {},
-			taplo = {},
-			templ = {},
-			tflint = {},
-			yamlls = {},
-			postgres_lsp = {},
-		}
+		-- Language servers can broadly be installed in the following ways:
+		--  1) via the mason package manager; or
+		--  2) via your system's package manager; or
+		--  3) via a release binary from a language server's repo that's accessible somewhere on your system.
 
-		---@type MasonLspconfigSettings
-		---@diagnostic disable-next-line: missing-fields
-		require("mason-lspconfig").setup({
-			automatic_enable = vim.tbl_keys(servers or {}),
-		})
+		-- The servers table comprises of the following sub-tables:
+		-- 1. mason
+		-- 2. others
+		-- Both these tables have an identical structure of language server names as keys and
+		-- a table of language server configuration as values.
+
+		---@class LspServersConfig
+		---@field mason table<string, vim.lsp.Config>
+		---@field others table<string, vim.lsp.Config>
+		local servers = {
+			mason = {
+				ansiblels = {},
+				arduino_language_server = {},
+				basedpyright = {
+					settings = {
+						basedpyright = {
+							analysis = {
+								typeCheckingMode = "standard",
+							},
+						},
+					},
+				},
+				bashls = {},
+				buf_ls = {},
+				docker_compose_language_service = {},
+				dockerls = {},
+				golangci_lint_ls = {},
+				gopls = {
+					settings = {
+						gopls = {
+							analyses = {
+								useany = true,
+								modernize = true,
+							},
+							codelenses = {
+								gc_details = true, -- Show a code lens toggling the display of gc's choices.
+								test = true,
+								run_govulncheck = true,
+							},
+							hints = {
+								assignVariableTypes = true,
+								compositeLiteralFields = true,
+								compositeLiteralTypes = true,
+								constantValues = true,
+								functionTypeParameters = true,
+								parameterNames = true,
+								rangeVariableTypes = true,
+							},
+							usePlaceholders = true,
+							completeUnimported = true,
+							staticcheck = true,
+							semanticTokens = false,
+							semanticTokenTypes = { keyword = true },
+							semanticTokenModifiers = { definition = true },
+							vulncheck = "Imports",
+							gofumpt = true,
+						},
+					},
+				},
+				html = {},
+				htmx = {},
+				jinja_lsp = {},
+				jsonls = {
+					settings = {
+						json = {
+							schemas = require("schemastore").json.schemas(),
+							validate = { enable = true },
+						},
+					},
+				},
+				jsonnet_ls = {},
+				lua_ls = {
+					-- cmd = {...},
+					-- filetypes = { ...},
+					-- capabilities = {},
+					settings = {
+						Lua = {
+							workspace = {
+								checkThirdParty = false,
+							},
+							codeLens = {
+								enable = true,
+							},
+							completion = {
+								callSnippet = "Replace",
+							},
+							doc = {
+								privateName = { "^_" },
+							},
+							hint = {
+								enable = true,
+								setType = false,
+								paramType = true,
+								paramName = "Disable",
+								semicolon = "Disable",
+								arrayIndex = "Disable",
+							},
+						},
+					},
+				},
+				marksman = {},
+				ruff = {},
+				tailwindcss = {},
+				taplo = {},
+				-- templ = {},
+				tflint = {},
+				yamlls = {},
+				postgres_lsp = {},
+			},
+			-- This table contains config for all language servers that are *not* installed via Mason.
+			-- Structure is identical to the mason table from above.
+			others = {
+				-- dartls = {},
+			},
+		}
 
 		-- Ensure the servers and tools above are installed
 		--
@@ -237,7 +243,7 @@ return {
 		--
 		-- You can add other tools here that you want Mason to install
 		-- for you, so that they are available from within Neovim.
-		local ensure_installed = vim.tbl_keys(servers or {})
+		local ensure_installed = vim.tbl_keys(servers.mason or {})
 		vim.list_extend(ensure_installed, {
 			"ansible-lint",
 			"black",
@@ -271,10 +277,24 @@ return {
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-		-- Installed LSPs are configured and enabled automatically with mason-lspconfig
-		-- The loop below is for overriding the default configuration of LSPs with the ones in the servers table
-		for server_name, config in pairs(servers) do
-			vim.lsp.config(server_name, config)
+		-- Either merge all additional server configs from the `servers.mason` and `servers.others` tables
+		-- to the default language server configs as provided by nvim-lspconfig or
+		-- define a custom server config that's unavailable on nvim-lspconfig.
+		for server, config in pairs(vim.tbl_extend("keep", servers.mason, servers.others)) do
+			if not vim.tbl_isempty(config) then
+				vim.lsp.config(server, config)
+			end
+		end
+
+		-- After configuring our language servers, we now enable them
+		require("mason-lspconfig").setup({
+			ensure_installed = {}, -- explicitly set to an empty table, populates installs via mason-tool-installer
+			automatic_enable = true, -- automatically run vim.lsp.enable() for all servers that are installed via Mason
+		})
+
+		-- Manually run vim.lsp.enable for all language servers that are *not* installed via Mason
+		if not vim.tbl_isempty(servers.others) then
+			vim.lsp.enable(vim.tbl_keys(servers.others))
 		end
 
 		vim.diagnostic.config({
