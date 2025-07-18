@@ -218,7 +218,7 @@ return {
 				ruff = {},
 				tailwindcss = {},
 				taplo = {},
-				-- templ = {},
+				templ = {},
 				tflint = {},
 				yamlls = {},
 				postgres_lsp = {},
