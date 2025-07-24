@@ -146,6 +146,9 @@ alias l='ls -CF --color'
 # alias to update Powerlevel10K
 alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
 
+# run neovim with uv run
+alias unvim='uv run nvim'
+
 if [[ $OSTYPE == darwin* ]]; then
     # Enable homebrew version of zsh autosuggestions
     source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
