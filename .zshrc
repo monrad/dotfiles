@@ -149,6 +149,11 @@ alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlev
 # run neovim with uv run
 alias unvim='uv run nvim'
 
+# git worktree add function
+function gwtab {
+	gwta -b $1 $1
+}
+
 if [[ $OSTYPE == darwin* ]]; then
     # Enable homebrew version of zsh autosuggestions
     source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
