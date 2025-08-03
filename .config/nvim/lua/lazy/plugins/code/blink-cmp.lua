@@ -40,6 +40,7 @@ return {
 		"ribru17/blink-cmp-spell",
 		"folke/lazydev.nvim",
 		"giuxtaposition/blink-cmp-copilot",
+		"disrupted/blink-cmp-conventional-commits",
 	},
 	--- @module 'blink.cmp'
 	--- @type blink.cmp.Config
@@ -79,7 +80,18 @@ return {
 		},
 
 		sources = {
-			default = { "buffer", "spell", "git", "lsp", "go_deep", "path", "snippets", "lazydev", "copilot" },
+			default = {
+				"buffer",
+				"spell",
+				"git",
+				"lsp",
+				"go_deep",
+				"path",
+				"snippets",
+				"lazydev",
+				"copilot",
+				"conventional_commits",
+			},
 			providers = {
 				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 				git = {
@@ -133,6 +145,16 @@ return {
 						filetypes = { "go", "templ" },
 						-- See below for configuration options
 					},
+				},
+				conventional_commits = {
+					name = "Conventional Commits",
+					module = "blink-cmp-conventional-commits",
+					enabled = function()
+						return vim.bo.filetype == "gitcommit"
+					end,
+					---@module 'blink-cmp-conventional-commits'
+					---@type blink-cmp-conventional-commits.Options
+					opts = {}, -- none so far
 				},
 			},
 			per_filetype = {
