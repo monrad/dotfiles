@@ -41,6 +41,7 @@ return {
 		"folke/lazydev.nvim",
 		"giuxtaposition/blink-cmp-copilot",
 		"disrupted/blink-cmp-conventional-commits",
+		"bydlw98/blink-cmp-sshconfig",
 	},
 	--- @module 'blink.cmp'
 	--- @type blink.cmp.Config
@@ -91,6 +92,7 @@ return {
 				"lazydev",
 				"copilot",
 				"conventional_commits",
+				"sshconfig",
 			},
 			providers = {
 				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
@@ -155,6 +157,13 @@ return {
 					---@module 'blink-cmp-conventional-commits'
 					---@type blink-cmp-conventional-commits.Options
 					opts = {}, -- none so far
+				},
+				sshconfig = {
+					name = "SshConfig",
+					module = "blink-cmp-sshconfig",
+					enabled = function()
+						return vim.bo.filetype == "sshconfig"
+					end,
 				},
 			},
 			per_filetype = {
