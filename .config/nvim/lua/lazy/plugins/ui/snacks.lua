@@ -369,6 +369,13 @@ return {
 			end,
 			desc = "Select Scratch Buffer",
 		},
+		{
+			"<leader>um",
+			function()
+				require("render-markdown").buf_toggle()
+			end,
+			desc = "Toggle render-markdown (buffer)",
+		},
 	},
 	init = function()
 		vim.api.nvim_create_autocmd("User", {
