@@ -32,7 +32,7 @@
   "mason-nvim-dap.nvim": { "branch": "main", "commit": "86389a3dd687cfaa647b6f44731e492970034baa" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "517ef5994ef9d6b738322664d5fdd948f0fdeb46" },
   "mason.nvim": { "branch": "main", "commit": "7dc4facca9702f95353d5a1f87daf23d78e31c2a" },
-  "mcphub.nvim": { "branch": "main", "commit": "a909574226af1c6760c44ba97acb35ef4053298b" },
+  "mcphub.nvim": { "branch": "main", "commit": "bd3dc1cf39812691c197989327cd36c41d5a1fb6" },
   "neotest": { "branch": "master", "commit": "35a59c1f59dbb954d92b74ab64a966a668cea495" },
   "neotest-golang": { "branch": "main", "commit": "723b55da4a84204aa6186398dc8d99cc54a6d180" },
   "neotest-python": { "branch": "master", "commit": "ed9b4d794b89044cc32e5476e637936331473c6e" },
