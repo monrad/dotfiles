@@ -221,6 +221,9 @@ return {
 				tflint = {},
 				yamlls = {},
 				postgres_lsp = {},
+				gh_actions_ls = {
+					filetypes = { "yaml.github" },
+				},
 			},
 			-- This table contains config for all language servers that are *not* installed via Mason.
 			-- Structure is identical to the mason table from above.
