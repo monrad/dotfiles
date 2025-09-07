@@ -41,7 +41,10 @@ return {
 		"folke/lazydev.nvim",
 		"giuxtaposition/blink-cmp-copilot",
 		"disrupted/blink-cmp-conventional-commits",
-		"bydlw98/blink-cmp-sshconfig",
+		{
+			"bydlw98/blink-cmp-sshconfig",
+			build = "make",
+		},
 	},
 	--- @module 'blink.cmp'
 	--- @type blink.cmp.Config
