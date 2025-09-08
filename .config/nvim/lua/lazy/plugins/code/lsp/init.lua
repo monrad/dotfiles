@@ -13,7 +13,6 @@ return {
 		-- Allows extra capabilities provided by blink.cmp
 		"saghen/blink.cmp",
 	},
-	keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
 	config = function()
 		-- Brief Aside: **What is LSP?**
 		--
@@ -52,6 +51,8 @@ return {
 					expr = expr or false
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
 				end
+
+				map("<leader>cm", "<cmd>Mason<cr>", "Mason")
 
 				map("K", vim.lsp.buf.hover, "Hover")
 				map("gD", vim.lsp.buf.declaration, "Goto Declaration")
