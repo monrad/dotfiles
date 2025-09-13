@@ -19,6 +19,7 @@ return {
 			},
 		},
 		indent = { enabled = true },
+		image = {},
 		input = { enabled = true },
 		notifier = {
 			enabled = true,
