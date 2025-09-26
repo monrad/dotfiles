@@ -43,3 +43,4 @@ OTDR
 struct
 Elgato
 pytest
+typer
