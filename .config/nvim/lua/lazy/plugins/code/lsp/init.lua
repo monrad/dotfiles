@@ -139,6 +139,7 @@ return {
 				},
 				bashls = {},
 				buf_ls = {},
+				copilot = {},
 				docker_compose_language_service = {},
 				dockerls = {},
 				golangci_lint_ls = {},
