@@ -34,7 +34,7 @@
   "mason.nvim": { "branch": "main", "commit": "ad7146aa61dcaeb54fa900144d768f040090bff0" },
   "mcphub.nvim": { "branch": "main", "commit": "8ff40b5edc649959bb7e89d25ae18e055554859a" },
   "neotest": { "branch": "master", "commit": "2cf3544fb55cdd428a9a1b7154aea9c9823426e8" },
-  "neotest-golang": { "branch": "main", "commit": "0ca3a5d42a78a8fc7b4eff41450f46dfb44475f6" },
+  "neotest-golang": { "branch": "main", "commit": "beb468cdb0549e1125b5eafd351035214b9fed3a" },
   "neotest-python": { "branch": "master", "commit": "7cab6e2ecc260bf61b97ca147574a470bd880cbd" },
   "noice.nvim": { "branch": "main", "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
