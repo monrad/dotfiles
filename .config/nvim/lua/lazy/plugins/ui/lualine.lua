@@ -13,13 +13,22 @@ return {
 				},
 			},
 		}
+		-- local InlineCompletions = {
+		-- 	function()
+		-- 		local inline_completions_is_enabled = vim.lsp.inline_completion.is_enabled()
+		-- 	end,
+		-- 	cond = function()
+		-- 		local inline_completions_is_enabled = vim.lsp.inline_completion.is_enabled()
+		-- 		return inline_completions_is_enabled
+		-- 	end,
+		-- }
 		local SidekickStatus = {
 			function()
-				local inline_completions_is_enabled = vim.lsp.inline_completion.is_enabled()
+				local nes_is_enabled = require("sidekick.nes").enabled
 				local sidekick_status = require("sidekick.status").get()
 				local sidekick_has_nes = require("sidekick.nes").have()
 				local sidekick_process_nes = next(require("sidekick.nes")._requests)
-				local icon = not inline_completions_is_enabled and icons.copilot.disabled
+				local icon = not nes_is_enabled and icons.copilot.disabled
 					or sidekick_status.kind == "Warning" and icons.copilot.warning
 					or icons.copilot.enabled
 				local icon_nes = sidekick_process_nes and icons.copilot.nes.process
@@ -38,8 +47,6 @@ return {
 			end,
 			cond = function()
 				local sidekick_has_status = require("sidekick.status").get() ~= nil
-				-- local inline_completions_is_enabled = vim.lsp.inline_completion.is_enabled()
-				-- return sidekick_has_status or inline_completions_is_enabled
 				return sidekick_has_status
 			end,
 		}
