@@ -149,6 +149,7 @@ return {
 							analyses = {
 								useany = true,
 								modernize = true,
+								ST1000 = false,
 							},
 							codelenses = {
 								gc_details = true, -- Show a code lens toggling the display of gc's choices.
