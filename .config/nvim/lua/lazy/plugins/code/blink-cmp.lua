@@ -39,7 +39,6 @@ return {
 		"onsails/lspkind.nvim",
 		"ribru17/blink-cmp-spell",
 		"folke/lazydev.nvim",
-		"giuxtaposition/blink-cmp-copilot",
 		"disrupted/blink-cmp-conventional-commits",
 		{
 			"bydlw98/blink-cmp-sshconfig",
@@ -103,7 +102,6 @@ return {
 				"path",
 				"snippets",
 				"lazydev",
-				"copilot",
 				"conventional_commits",
 				"sshconfig",
 			},
@@ -142,12 +140,6 @@ return {
 							return in_spell_capture
 						end,
 					},
-				},
-				copilot = {
-					name = "copilot",
-					module = "blink-cmp-copilot",
-					score_offset = 100,
-					async = true,
 				},
 				go_deep = {
 					name = "go_deep",
