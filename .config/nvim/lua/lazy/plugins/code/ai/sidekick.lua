@@ -1,5 +1,6 @@
 return {
 	"folke/sidekick.nvim",
+	--- @type sidekick.Config
 	opts = {
 		-- add any options here
 		cli = {
@@ -8,6 +9,7 @@ return {
 				enabled = true,
 			},
 		},
+		nes = { enabled = false },
 	},
 	keys = {
 		{
@@ -69,6 +71,15 @@ return {
 			end,
 			mode = { "n", "x" },
 			desc = "Sidekick Select Prompt",
+		},
+		{
+			"<leader>an",
+			function()
+				require("sidekick.nes").toggle()
+				vim.notify("NES is " .. (require("sidekick.nes").enabled and "on" or "off"))
+			end,
+			mode = { "n", "x" },
+			desc = "Sidekick Toggle NES",
 		},
 	},
 }
