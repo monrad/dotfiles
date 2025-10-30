@@ -283,7 +283,6 @@ return {
 			"markdownlint-cli2",
 			"mypy",
 			"pgformatter",
-			"postgrestools",
 			"prettierd",
 			"rustywind",
 			"shellcheck",
