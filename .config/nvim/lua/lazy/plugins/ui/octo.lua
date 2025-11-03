@@ -1,12 +1,17 @@
 return {
 	"pwntester/octo.nvim",
+	requires = {
+		"nvim-lua/plenary.nvim",
+		"folke/snacks.nvim",
+		"nvim-tree/nvim-web-devicons",
+	},
 	cmd = "Octo",
 	event = { { event = "BufReadCmd", pattern = "octo://*" } },
 	opts = {
 		enable_builtin = true,
 		default_to_projects_v2 = true,
 		default_merge_method = "squash",
-		picker = "telescope",
+		picker = "snacks",
 	},
 	keys = {
 		{ "<leader>gi", "<cmd>Octo issue list<CR>", desc = "List Issues (Octo)" },
