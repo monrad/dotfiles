@@ -14,9 +14,6 @@ if [[ $OSTYPE == darwin* ]]; then
         HOMEBREW_PREFIX="/usr/local"
     fi
 
-    # Set homebrew download concurrency to auto
-    export HOMEBREW_DOWNLOAD_CONCURRENCY=auto
- 
     # Add homebrew bin paths
     export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$PATH"
 
