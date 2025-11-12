@@ -4,7 +4,12 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
-		picker = {},
+		picker = {
+			sources = {
+				gh_issue = {},
+				gh_pr = {},
+			},
+		},
 		bigfile = { enabled = true },
 		dashboard = {
 			preset = {
@@ -30,6 +35,7 @@ return {
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
+		gh = {},
 		terminal = {
 			win = {
 				relative = "editor",
@@ -88,6 +94,35 @@ return {
 				Snacks.picker.recent()
 			end,
 			desc = "Recent",
+		},
+		-- GitHub
+		{
+			"<leader>gi",
+			function()
+				Snacks.picker.gh_issue()
+			end,
+			desc = "GitHub Issues (open)",
+		},
+		{
+			"<leader>gI",
+			function()
+				Snacks.picker.gh_issue({ state = "all" })
+			end,
+			desc = "GitHub Issues (all)",
+		},
+		{
+			"<leader>gp",
+			function()
+				Snacks.picker.gh_pr()
+			end,
+			desc = "GitHub Pull Requests (open)",
+		},
+		{
+			"<leader>gP",
+			function()
+				Snacks.picker.gh_pr({ state = "all" })
+			end,
+			desc = "GitHub Pull Requests (all)",
 		},
 		-- git
 		{
