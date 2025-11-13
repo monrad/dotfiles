@@ -100,7 +100,7 @@ return {
 			toml = { "taplo" },
 			yaml = { "prettierd" },
 			cedar = { "cedar" },
-			sql = { "pg_format" },
+			sql = { "sqlfluff" },
 			python = function(bufnr)
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
 					return { "ruff_organize_imports", "ruff_format" }

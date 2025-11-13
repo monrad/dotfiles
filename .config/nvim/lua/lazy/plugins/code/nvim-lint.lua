@@ -16,6 +16,7 @@ return {
 			lint.linters_by_ft["systemd"] = { "systemdlint" }
 			lint.linters_by_ft["terraform"] = { "tflint" }
 			lint.linters_by_ft["text"] = nil
+			lint.linters_by_ft["sql"] = { "sqlfluff" }
 
 			-- configure markdownlint
 			local markdownlint = require("lint").linters.markdownlint
