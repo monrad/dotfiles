@@ -167,7 +167,7 @@ return {
 							},
 							usePlaceholders = true,
 							completeUnimported = true,
-							staticcheck = true,
+							staticcheck = false,
 							semanticTokens = false,
 							semanticTokenTypes = { keyword = true },
 							semanticTokenModifiers = { definition = true },
