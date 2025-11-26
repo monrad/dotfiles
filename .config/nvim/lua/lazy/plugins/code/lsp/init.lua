@@ -220,6 +220,7 @@ return {
 				ruff = {},
 				tailwindcss = {},
 				taplo = {},
+				cssls = {},
 				templ = {},
 				tflint = {},
 				yamlls = {

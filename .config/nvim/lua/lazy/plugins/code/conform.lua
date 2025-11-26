@@ -99,6 +99,7 @@ return {
 			templ = { "rustywind", "templ" },
 			toml = { "taplo" },
 			yaml = { "prettierd" },
+			css = { "prettierd" },
 			cedar = { "cedar" },
 			sql = { "sqlfluff" },
 			python = function(bufnr)
