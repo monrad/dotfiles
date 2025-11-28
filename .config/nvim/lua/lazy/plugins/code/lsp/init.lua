@@ -218,7 +218,23 @@ return {
 				},
 				marksman = {},
 				ruff = {},
-				tailwindcss = {},
+				tailwindcss = {
+					filetypes = {
+						"go",
+					},
+					settings = {
+						tailwindCSS = {
+							includeLanguages = {
+								go = "html",
+							},
+							experimental = {
+								classRegex = {
+									{ "Class(?:es)?[({]([^)}]*)[)}]", '["`]([^"`]*)["`]' },
+								},
+							},
+						},
+					},
+				},
 				taplo = {},
 				cssls = {},
 				templ = {},
