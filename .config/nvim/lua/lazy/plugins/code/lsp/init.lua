@@ -221,11 +221,13 @@ return {
 				tailwindcss = {
 					filetypes = {
 						"go",
+						"templ",
 					},
 					settings = {
 						tailwindCSS = {
 							includeLanguages = {
 								go = "html",
+								templ = "html",
 							},
 							experimental = {
 								classRegex = {
