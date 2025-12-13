@@ -4,6 +4,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local lint = require("lint")
+			lint.linters_by_ft["yaml.github"] = { "actionlint" }
 			lint.linters_by_ft["clojure"] = nil
 			lint.linters_by_ft["dockerfile"] = { "hadolint" }
 			lint.linters_by_ft["inko"] = nil
