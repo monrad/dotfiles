@@ -241,6 +241,7 @@ return {
 				cssls = {},
 				templ = {},
 				tflint = {},
+				ty = {},
 				yamlls = {
 					settings = {
 						yaml = {
