@@ -90,3 +90,6 @@ end
 
 -- Copilot
 vim.g.copilot_enabled = false -- sets the default
+
+-- Folding
+vim.opt.foldlevel = 99
