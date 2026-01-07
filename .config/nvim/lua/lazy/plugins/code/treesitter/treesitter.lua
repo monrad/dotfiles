@@ -57,7 +57,6 @@ return {
 			"query",
 			"regex",
 			"requirements",
-			"robot_txt",
 			"ruby",
 			"rust",
 			"scss",
@@ -111,6 +110,19 @@ return {
 				vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 				vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 				vim.wo[0][0].foldmethod = "expr"
+			end,
+		})
+		-- Install Cedar treesitter parser
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "TSUpdate",
+			callback = function()
+				require("nvim-treesitter.parsers").cedar = {
+					install_info = {
+						url = "https://github.com/chrnorm/tree-sitter-cedar",
+						branch = "main",
+						queries = "queries/",
+					},
+				}
 			end,
 		})
 	end,
