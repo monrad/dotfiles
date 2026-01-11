@@ -118,9 +118,24 @@ return {
 			callback = function()
 				require("nvim-treesitter.parsers").cedar = {
 					install_info = {
-						url = "https://github.com/chrnorm/tree-sitter-cedar",
+						url = "https://github.com/DuskSystems/tree-sitter-cedar",
 						branch = "main",
-						queries = "queries/",
+						location = "cedar",
+						queries = "cedar/queries/",
+					},
+				}
+			end,
+		})
+		-- Install Cedarschema treesitter parser
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "TSUpdate",
+			callback = function()
+				require("nvim-treesitter.parsers").cedarschema = {
+					install_info = {
+						url = "https://github.com/DuskSystems/tree-sitter-cedar",
+						branch = "main",
+						location = "cedarschema",
+						queries = "cedarschema/queries/",
 					},
 				}
 			end,
