@@ -128,6 +128,21 @@ return {
 			mason = {
 				ansiblels = {},
 				arduino_language_server = {},
+				basedpyright = {
+					settings = {
+						basedpyright = {
+							analysis = {
+								typeCheckingMode = "recommended",
+								inlayHints = {
+									variableTypes = false,
+									callArgumentNames = false,
+									functionReturnTypes = false,
+									genericTypes = false,
+								},
+							},
+						},
+					},
+				},
 				bashls = {},
 				buf_ls = {},
 				copilot = {},
