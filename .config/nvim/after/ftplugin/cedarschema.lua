@@ -1,5 +1,6 @@
 vim.treesitter.start()
 
+vim.bo.commentstring = "// %s"
 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
 vim.wo[0][0].foldmethod = "expr"
