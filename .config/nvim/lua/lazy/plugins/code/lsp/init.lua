@@ -171,6 +171,7 @@ return {
 								parameterNames = true,
 								rangeVariableTypes = true,
 							},
+							buildFlags = { "-tags=e2e" },
 							usePlaceholders = true,
 							completeUnimported = true,
 							staticcheck = false,
