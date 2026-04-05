@@ -334,13 +334,6 @@ return {
 			desc = "LSP Symbols (workspace)",
 		},
 		{
-			"<leader>uu",
-			function()
-				Snacks.picker.undo()
-			end,
-			desc = "Undo",
-		},
-		{
 			"<leader>un",
 			function()
 				Snacks.notifier.hide()

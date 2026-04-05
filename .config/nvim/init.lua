@@ -8,6 +8,7 @@ require("base.options")
 require("base.keymaps")
 require("base.autocommands")
 require("base.filetypes")
+require("base.undo")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
