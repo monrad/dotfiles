@@ -1,5 +1,5 @@
 {
-  "LuaSnip": { "branch": "master", "commit": "5a1e39223db9a0498024a77b8441169d260c8c25" },
+  "LuaSnip": { "branch": "master", "commit": "642b0c595e11608b4c18219e93b88d7637af27bc" },
   "arrow.nvim": { "branch": "master", "commit": "6e0f726f55f99332dd726a53effd6813786b6d49" },
   "blink-cmp-conventional-commits": { "branch": "main", "commit": "faa45344aab97aa33ece53938c4c3379760e61bd" },
   "blink-cmp-git": { "branch": "master", "commit": "10783593af764424018a95e75df6ad5a8b66fe07" },
@@ -11,7 +11,7 @@
   "conform.nvim": { "branch": "master", "commit": "086a40dc7ed8242c03be9f47fbcee68699cc2395" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
   "git-worktree.nvim": { "branch": "main", "commit": "3ad8c17a3d178ac19be925284389c14114638ebb" },
-  "gitsigns.nvim": { "branch": "main", "commit": "07ff073b84d3ef48f286529c36658a65d1a64707" },
+  "gitsigns.nvim": { "branch": "main", "commit": "4bafeca9bc9ce5b3b4b953ec8ca85ddeac25ed29" },
   "godoc.nvim": { "branch": "main", "commit": "092d2b191b95ff9bf77e09ca62b1335a9248c105" },
   "goplements.nvim": { "branch": "main", "commit": "1750ace64d42efcbc1ce36eef848a3cea5f88c79" },
   "grug-far.nvim": { "branch": "main", "commit": "dc4684e163971bb1f5bfb93fbd4bb3e892bf9b15" },
