@@ -61,7 +61,7 @@
   "sqlite.lua": { "branch": "master", "commit": "50092d60feb242602d7578398c6eb53b4a8ffe7b" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6fea601bd2b694c6f2ae08a6c6fab14930c60e2c" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
-  "telescope.nvim": { "branch": "master", "commit": "f7c673b8e46e8f233ff581d3624a517d33a7e264" },
+  "telescope.nvim": { "branch": "master", "commit": "3ab376cfae65b921dda454df5967f8df673effc6" },
   "templ-goto-definition": { "branch": "main", "commit": "b32f102bed266c134e1c57209b559974ed45420a" },
   "tiny-code-action.nvim": { "branch": "main", "commit": "1c75d7e121ea38bf362d939ddb9064ca9bb6884f" },
   "todo-comments.nvim": { "branch": "main", "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668" },
