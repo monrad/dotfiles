@@ -2,7 +2,7 @@
   "LuaSnip": { "branch": "master", "commit": "642b0c595e11608b4c18219e93b88d7637af27bc" },
   "arrow.nvim": { "branch": "master", "commit": "6e0f726f55f99332dd726a53effd6813786b6d49" },
   "blink-cmp-conventional-commits": { "branch": "main", "commit": "28f46593ef5e03ba7525bdf6075be0c56c6ceb55" },
-  "blink-cmp-git": { "branch": "master", "commit": "10783593af764424018a95e75df6ad5a8b66fe07" },
+  "blink-cmp-git": { "branch": "master", "commit": "302b9dabec3284de29665e2311118a3202cb192a" },
   "blink-cmp-spell": { "branch": "master", "commit": "2bd0e0d5e7735c047e72b6918a0458f3e8fadaba" },
   "blink-cmp-sshconfig": { "branch": "main", "commit": "91bf9bd80d53d2b6521cffb01da138ef6403d625" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
