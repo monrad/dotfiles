@@ -17,6 +17,11 @@ return {
 			lint.linters_by_ft["systemd"] = { "systemdlint" }
 			lint.linters_by_ft["terraform"] = { "tflint" }
 			lint.linters_by_ft["text"] = nil
+			local nix_linters = { "statix" }
+			if vim.fn.executable("deadnix") == 1 then
+				table.insert(nix_linters, "deadnix")
+			end
+			lint.linters_by_ft["nix"] = nix_linters
 			lint.linters_by_ft["sql"] = { "sqlfluff" }
 
 			-- configure markdownlint

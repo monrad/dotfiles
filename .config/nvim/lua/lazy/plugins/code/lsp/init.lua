@@ -271,7 +271,15 @@ return {
 			-- This table contains config for all language servers that are *not* installed via Mason.
 			-- Structure is identical to the mason table from above.
 			others = {
-				-- dartls = {},
+				nixd = {
+					settings = {
+						nixd = {
+							formatting = {
+								command = { "nixfmt" },
+							},
+						},
+					},
+				},
 			},
 		}
 
@@ -291,6 +299,7 @@ return {
 		local ensure_installed = vim.tbl_keys(servers.mason or {})
 		vim.list_extend(ensure_installed, {
 			"actionlint",
+			"alejandra",
 			"ansible-lint",
 			"black",
 			"buf",
@@ -318,6 +327,7 @@ return {
 			"stylua",
 			"systemdlint",
 			"tfsec",
+			"statix",
 			"vale",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
