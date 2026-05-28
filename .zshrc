@@ -73,9 +73,8 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# Shared aliases, exports, and helpers — works on Mac and NixOS
-[[ -f "$HOME/code/bootstrap/dotfiles/.zsh-common.zsh" ]] && \
-  source "$HOME/code/bootstrap/dotfiles/.zsh-common.zsh"
+# Shared aliases, exports, and helpers — symlinked from dotfiles on both platforms
+[[ -f ~/.zsh-common.zsh ]] && source ~/.zsh-common.zsh
 
 # Mac-only: brew-installed zsh plugins
 if [[ $OSTYPE == darwin* ]]; then
