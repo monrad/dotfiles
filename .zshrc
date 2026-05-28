@@ -80,7 +80,7 @@ export LESS="\
 
 # Setup ripgrep
 export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
-function rg { command rg --json --context 2 $@ | delta --tabs=1; }
+function rg { command rg --json --context 2 "$@" | delta --tabs=1; }
 
 # Add work stuff if this is here
 if [[ -f $HOME/.work.zsh ]]; then
@@ -153,6 +153,19 @@ alias unvim='uv run nvim'
 function gwtab {
 	gwta -b $1 $1
 }
+
+# Zellij: attach to a named session or create it
+alias zj='zellij attach --create'
+
+# Zellij: fzf-pick a session, attach (or create the typed name)
+function zjp {
+  local sel
+  sel=$(zellij list-sessions -s 2>/dev/null | fzf --print-query | tail -n1) || return
+  [[ -n "$sel" ]] && zellij attach --create "$sel"
+}
+
+# Zellij: per-directory session named after the current basename
+function zjh { zellij attach --create "$(basename "$PWD")"; }
 
 if [[ $OSTYPE == darwin* ]]; then
     # Enable homebrew version of zsh autosuggestions
