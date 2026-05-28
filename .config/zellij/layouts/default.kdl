@@ -1,0 +1,11 @@
+// Move the tab-bar to the top, drop the bottom status-bar for a
+// cleaner, more tmux-like single-line indicator up top.
+layout {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane
+    pane size=1 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
