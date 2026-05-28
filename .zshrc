@@ -55,53 +55,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set LANG
 export LANG="en_US.UTF-8"
 
-# Add Go exports
-export GOPATH=`go env GOPATH`
-export GOBIN="$GOPATH/bin"
-export PATH="$PATH:$GOBIN"
-
-# Add .local bin path
-export PATH="$HOME/.local/bin:$PATH"
-
-
-# Setup less settings
-export LESS="\
---chop-long-lines \
---HILITE-UNREAD \
---ignore-case \
---incsearch \
---jump-target=4 \
---LONG-PROMPT \
---no-init \
---quit-if-one-screen \
---RAW-CONTROL-CHARS \
---use-color \
---window=-4"
-
-# Setup ripgrep
-export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
-function rg { command rg --json --context 2 "$@" | delta --tabs=1; }
-
-# Add work stuff if this is here
-if [[ -f $HOME/.work.zsh ]]; then
-    source $HOME/.work.zsh
-fi
-# Add BM stuff is this is here
-if [[ -f $HOME/.bm.zsh ]]; then
-    source $HOME/.bm.zsh
-fi
-# Set editor to Neovim if binary is there
-if (($+commands[nvim])); then
-    export EDITOR=nvim
-fi
-
-# Export dir for git cu to use as basedir
-export GIT_CU_DIR=~/git
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Set name of the theme to load
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -110,14 +64,7 @@ CASE_SENSITIVE="false"
 # Uncomment one of the following lines to change the auto-update behavior
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
 # Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git fzf virtualenv golang)
 
 if [[ $OSTYPE == darwin* ]]; then
@@ -126,55 +73,19 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# Shared aliases, exports, and helpers — works on Mac and NixOS
+[[ -f "$HOME/code/bootstrap/dotfiles/.zsh-common.zsh" ]] && \
+  source "$HOME/code/bootstrap/dotfiles/.zsh-common.zsh"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ll='ls -lhF --color'
-alias llt='ls -latrFh --color'
-alias lr='ls -latrFh --color'
-alias la='ls -ahF --color'
-alias lla='ls -lahF --color'
-alias l='ls -CF --color'
-
-# alias to update Powerlevel10K
-alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
-
-# run neovim with uv run
-alias unvim='uv run nvim'
-
-# git worktree add function
-function gwtab {
-	gwta -b $1 $1
-}
-
-# Zellij: attach to a named session or create it
-alias zj='zellij attach --create'
-
-# Zellij: fzf-pick a session, attach (or create the typed name)
-function zjp {
-  local sel
-  sel=$(zellij list-sessions -s 2>/dev/null | fzf --print-query | tail -n1) || return
-  [[ -n "$sel" ]] && zellij attach --create "$sel"
-}
-
-# Zellij: per-directory session named after the current basename
-function zjh { zellij attach --create "$(basename "$PWD")"; }
-
+# Mac-only: brew-installed zsh plugins
 if [[ $OSTYPE == darwin* ]]; then
-    # Enable homebrew version of zsh autosuggestions
     source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    # Enable homebrew version of zsh syntax highlightning
     source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    # Enable homebrew version of zsh you should use
     source ${HOMEBREW_PREFIX}/share/zsh-you-should-use/you-should-use.plugin.zsh
 fi
+
+# Mac-only: powerlevel10k is a git clone, not a package
+alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
