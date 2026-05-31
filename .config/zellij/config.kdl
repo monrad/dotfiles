@@ -1,6 +1,9 @@
 default_mode "normal"
 default_shell "zsh"
 mouse_mode true
+// Pass OSC 8 hyperlinks through to the terminal so they're clickable
+// (Shift+click in Ghostty, since mouse_mode otherwise captures the click).
+osc8_hyperlinks true
 scroll_buffer_size 50000
 pane_frames false
 copy_on_select true
