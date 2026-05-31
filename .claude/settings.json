@@ -20,7 +20,31 @@
       }
     }
   },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/zellij-rename.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/zellij-rename.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "theme": "dark",
+  "autoCompactEnabled": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "autoCompactEnabled": false
+  "skipWorkflowUsageWarning": true
 }
