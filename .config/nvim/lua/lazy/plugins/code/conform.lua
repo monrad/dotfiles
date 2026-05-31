@@ -101,13 +101,7 @@ return {
 			yaml = { "prettierd" },
 			css = { "prettierd" },
 			cedar = { "cedar" },
-			nix = function(bufnr)
-				if require("conform").get_formatter_info("nixfmt", bufnr).available then
-					return { "nixfmt" }
-				else
-					return { "alejandra" }
-				end
-			end,
+			nix = { "alejandra" },
 			sql = { "sqlfluff" },
 			python = function(bufnr)
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
