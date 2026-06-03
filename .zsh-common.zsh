@@ -47,6 +47,13 @@ function zjp {
   [[ -n "$sel" ]] && zellij attach --create "$sel"
 }
 function zjh { zellij attach --create "$(basename "$PWD")"; }
+function zjd {
+  local dir=${1:-.}
+  [[ -d $dir ]] || { echo "zjd: no such dir: $dir" >&2; return 1 }
+  builtin cd "$dir" || return
+  zellij attach --create "$(basename "$PWD")"
+}
+compdef _directories zjd 2>/dev/null
 
 # Work/BM overlays
 [[ -f $HOME/.work.zsh ]] && source $HOME/.work.zsh
