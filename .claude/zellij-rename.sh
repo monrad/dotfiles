@@ -47,6 +47,19 @@ state_file="$state_dir/$sid"
 current=$(cat "$state_file" 2>/dev/null || true)
 [ -n "$current" ] || current="$ZELLIJ_SESSION_NAME"
 
+# Append a timestamped line to the rename log, deduped on a per-session status
+# key so the repeating paths (a collision persists across every prompt) log once
+# per state transition instead of every turn. %FT%T%z is portable across macOS
+# (BSD date) and dev1 (GNU date) -- `date -Is` is GNU-only.
+logf="${CLAUDE_RENAME_LOG:-$HOME/.claude-rename.log}"
+note() { # note <status-key> <message>
+  local key=$1; shift
+  local sf="$state_file.status"
+  [ "$(cat "$sf" 2>/dev/null)" = "$key" ] && return 0
+  mkdir -p "$state_dir"; printf '%s' "$key" >"$sf"
+  printf '%s %s\n' "$(date +%FT%T%z)" "$*" >>"$logf" 2>/dev/null || true
+}
+
 # No-op if the session is already named this.
 [ "$name" = "$current" ] && exit 0
 
@@ -54,7 +67,19 @@ current=$(cat "$state_file" 2>/dev/null || true)
 # handle (e.g. someone renamed the session out-of-band) has no socket and would
 # block until the timeout fires on every turn -- skip it instead of stalling.
 live=$(zellij list-sessions 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' | awk '{print $1}')
-printf '%s\n' "$live" | grep -qxF "$current" || exit 0
+if ! printf '%s\n' "$live" | grep -qxF "$current"; then
+  note "stale:$current" "skip: routing handle '$current' is not a live session"
+  exit 0
+fi
+
+# Don't clobber: if the target name already belongs to a DIFFERENT session (live
+# or resurrectable), renaming onto it would collide -- e.g. with a zjd session of
+# the same dir-basename. The name==current no-op already returned above, so a
+# match here is always another session. Skip instead of stealing its name.
+if printf '%s\n' "$live" | grep -qxF "$name"; then
+  note "collision:$name" "skip: '$name' already exists; left '$current' as-is"
+  exit 0
+fi
 
 # Defensive timeout so an unresponsive zellij server can never stall the turn.
 # Route via $current (the live name), not the frozen $ZELLIJ_SESSION_NAME.
@@ -62,4 +87,7 @@ if ZELLIJ_SESSION_NAME="$current" timeout 3 \
      zellij action rename-session "$name" >/dev/null 2>&1; then
   mkdir -p "$state_dir"
   printf '%s' "$name" >"$state_file"
+  note "ok:$name" "ok: renamed '$current' -> '$name'"
+else
+  note "fail:$name" "fail: rename '$current' -> '$name' errored (zellij unresponsive or name taken)"
 fi
