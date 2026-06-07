@@ -24,6 +24,19 @@ if (( $+commands[nvim] )); then
   export EDITOR=nvim
 fi
 
+# direnv — hook into zsh so per-directory envs (e.g. the nix-config flake
+# devShell providing nixd) load on cd. Guarded so it's a no-op where direnv
+# isn't installed; direnv's hook output is idempotent, so re-running on hosts
+# already hooked by home-manager is harmless.
+#
+# DIRENV_LOG_FORMAT="" silences direnv's "loading"/"export +AR +AS …" chatter.
+# A Nix devShell exports a huge var set, so that log is noisy on every cd, and
+# any console output during zsh init trips Powerlevel10k's instant-prompt guard.
+if (( $+commands[direnv] )); then
+  export DIRENV_LOG_FORMAT=""
+  eval "$(direnv hook zsh)"
+fi
+
 # git cu base dir
 export GIT_CU_DIR=~/git
 
