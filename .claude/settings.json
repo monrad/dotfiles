@@ -1,25 +1,5 @@
 {
   "skillListingBudgetFraction": 0.02,
-  "statusLine": {
-    "type": "command",
-    "command": "sh $HOME/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "crit@crit": true
-  },
-  "extraKnownMarketplaces": {
-    "crit": {
-      "source": {
-        "source": "github",
-        "repo": "tomasz-tomczyk/crit"
-      }
-    }
-  },
   "hooks": {
     "SessionStart": [
       {
@@ -42,9 +22,36 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "sh $HOME/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "crit@crit": true,
+    "masterplan@rasatpetabit-masterplan": true
+  },
+  "extraKnownMarketplaces": {
+    "crit": {
+      "source": {
+        "source": "github",
+        "repo": "tomasz-tomczyk/crit"
+      }
+    },
+    "rasatpetabit-masterplan": {
+      "source": {
+        "source": "github",
+        "repo": "rasatpetabit/masterplan"
+      }
+    }
+  },
+  "skipWorkflowUsageWarning": true,
   "theme": "dark",
   "autoCompactEnabled": false,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true
+  "skipAutoPermissionPrompt": true
 }
