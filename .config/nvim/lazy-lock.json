@@ -7,7 +7,7 @@
   "blink-cmp-sshconfig": { "branch": "main", "commit": "e75dc37488a62bf0e7606783ab1ecc212b06cf73" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "blink.compat": { "branch": "main", "commit": "1454f14a8d855a578ceeba77c62538fa1459a67c" },
-  "cmp-go-deep": { "branch": "master", "commit": "882a572fcd09b87b3c8d9e35b06bda85bd25d285" },
+  "cmp-go-deep": { "branch": "master", "commit": "ad48d68344e9f7149ac108d0252c927f3ea23539" },
   "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
   "git-worktree.nvim": { "branch": "main", "commit": "3ad8c17a3d178ac19be925284389c14114638ebb" },
