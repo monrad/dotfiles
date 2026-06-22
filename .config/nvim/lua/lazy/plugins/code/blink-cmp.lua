@@ -34,8 +34,12 @@ return {
 			"Kaiser-Yang/blink-cmp-git",
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
-		{ "samiulsami/cmp-go-deep", dependencies = { "kkharji/sqlite.lua" } },
-		{ "saghen/blink.compat" },
+		"saghen/blink.compat",
+		"saghen/blink.lib",
+		{
+			"samiulsami/go-deep.nvim",
+			build = ':lua require("go_deep").build()',
+		},
 		"onsails/lspkind.nvim",
 		"ribru17/blink-cmp-spell",
 		"folke/lazydev.nvim",
@@ -143,15 +147,13 @@ return {
 					},
 				},
 				go_deep = {
-					name = "go_deep",
-					module = "blink.compat.source",
-					min_keyword_length = 3,
-					max_items = 5,
-					---@module "cmp_go_deep"
-					---@type cmp_go_deep.Options
+					module = "go_deep.blink",
+					async = true,
 					opts = {
-						filetypes = { "go", "templ" },
-						-- See below for configuration options
+						min_keyword_length = 2,
+						max_items = 5,
+						max_from_same_package = 4,
+						exclude_imported_packages = true,
 					},
 				},
 				conventional_commits = {
