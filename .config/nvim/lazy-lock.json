@@ -12,7 +12,7 @@
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
   "git-worktree.nvim": { "branch": "main", "commit": "3ad8c17a3d178ac19be925284389c14114638ebb" },
   "gitsigns.nvim": { "branch": "main", "commit": "2038c666bd9d8a0b7349a0b6ee00dc83104b9ecf" },
-  "go-deep.nvim": { "branch": "master", "commit": "6dcf846de55a7ba6a8250e61f0af6c79d213f1fb" },
+  "go-deep.nvim": { "branch": "master", "commit": "2783d9c6b151d4d9b5dd76351ceff870ea841bcc" },
   "godoc.nvim": { "branch": "main", "commit": "54a7c3b14f6391a299b94db7c18d3a9ee1e31bde" },
   "goplements.nvim": { "branch": "main", "commit": "1750ace64d42efcbc1ce36eef848a3cea5f88c79" },
   "grug-far.nvim": { "branch": "main", "commit": "c69859c1d5427ab5fc7ed12380ab521b4e336691" },
