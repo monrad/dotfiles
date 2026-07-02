@@ -61,6 +61,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="false"
 
+# Remove a host's key(s) from known_hosts (handy after a host is reprovisioned)
+sshrm() {
+  if [ $# -eq 0 ]; then
+    echo "usage: sshrm <hostname-or-ip> [more hosts...]" >&2
+    return 1
+  fi
+  for host in "$@"; do
+    ssh-keygen -R "$host"
+  done
+}
+
 # Uncomment one of the following lines to change the auto-update behavior
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
@@ -88,3 +99,4 @@ alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlev
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
