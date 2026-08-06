@@ -23,6 +23,6 @@ ln -sf --relative .p10k.zsh "$HOME"/.p10k.zsh
 echo "switch shell to zsh"
 sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
 echo "download and install git delta"
-wget https://github.com/dandavison/delta/releases/download/0.18.2/git-delta_0.18.2_amd64.deb
-sudo dpkg -i git-delta_0.18.2_amd64.deb
-rm git-delta_0.18.2_amd64.deb
+wget https://github.com/dandavison/delta/releases/download/0.19.2/git-delta_0.19.2_amd64.deb
+sudo dpkg -i git-delta_0.19.2_amd64.deb
+rm git-delta_0.19.2_amd64.deb
