@@ -16,6 +16,8 @@ echo "symlink neovim config dir"
 ln -sf --relative .config/nvim "$HOME"/.config/nvim
 echo "symlink git config dir"
 ln -sf --relative .config/git "$HOME"/.config/git
+echo "symlink tmux config dir"
+ln -sf --relative .config/tmux "$HOME"/.config/tmux
 echo "symlink zshrc"
 ln -sf --relative .zshrc "$HOME"/.zshrc
 echo "symlink p10k.zsh"
