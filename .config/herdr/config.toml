@@ -5,6 +5,8 @@
 # session-history.json and the live herdr.sock all land next to this file. Only
 # THIS file is symlinked out of the dotfiles checkout — never the directory.
 
+# Don't run onboarding
+onboarding = false
 [terminal]
 default_shell = "zsh"
 
