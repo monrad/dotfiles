@@ -1,0 +1,29 @@
+# herdr — agent multiplexer
+#
+# NOTE: ~/.config/herdr/ is NOT a pure config directory. herdr resolves its
+# session data_dir() to config_dir() (src/session.rs), so session.json,
+# session-history.json and the live herdr.sock all land next to this file. Only
+# THIS file is symlinked out of the dotfiles checkout — never the directory.
+
+[terminal]
+default_shell = "zsh"
+
+[keys]
+# Match tmux (`set -g prefix C-Space` in ../tmux/tmux.conf) rather than herdr's
+# ctrl+b default
+prefix = "ctrl+space"
+
+[theme]
+# Closest built-in to zellij's tokyo-night-storm. auto_switch is off: Ghostty
+# is pinned dark, so light/dark flipping would only ever fight it.
+name = "tokyo-night"
+auto_switch = false
+
+[session]
+# The pane layout comes back after a server restart either way; this also
+# resumes the agent conversations that were running in those panes.
+resume_agents_on_restore = true
+
+[remote]
+# Leave our own ~/.ssh/config alone.
+manage_ssh_config = false
