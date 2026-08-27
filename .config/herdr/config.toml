@@ -15,6 +15,28 @@ default_shell = "zsh"
 # ctrl+b default
 prefix = "ctrl+space"
 
+# Both worktree actions ship unbound; new_worktree already has prefix+shift+g by
+# default. open_worktree is the one that earns its key here: it lists every
+# linked worktree of the current repo, including checkouts herdr did not create
+# — the ~/code/bitmover/BitMover/.claude/worktrees/* ones Claude Code leaves
+# behind are otherwise invisible to the sidebar. Already-open checkouts get
+# focused, closed ones open in the same workspace group.
+open_worktree = "prefix+shift+o"
+
+# Deliberately a shift+letter: the docs call ctrl+letter and explicit modified
+# chords the reliable family, while punctuation-with-modifiers "may depend on
+# your terminal/tmux setup" — which matters because this host is also attached
+# to over `herdr --remote` from the Mac. shift+k has no shift-bound neighbours,
+# so a slipped keystroke lands on nothing rather than on another action.
+#
+# Note this is destructive beyond what "remove" suggests: herdr runs `git
+# worktree remove`, "requesting safe removal first, then forcing removal if
+# necessary due to modified or untracked files". One confirmation dialog is all
+# that stands between this key and discarded uncommitted work in an agent's
+# checkout. Branches are not deleted, and it only touches herdr-managed
+# checkouts, so the .claude/worktrees/* ones above are not removable this way.
+remove_worktree = "prefix+shift+k"
+
 [theme]
 # Closest built-in to zellij's tokyo-night-storm. auto_switch is off: Ghostty
 # is pinned dark, so light/dark flipping would only ever fight it.
