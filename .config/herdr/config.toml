@@ -43,6 +43,28 @@ remove_worktree = "prefix+shift+k"
 name = "tokyo-night"
 auto_switch = false
 
+[ui]
+# Attention queue, not the "spaces" default: with four agents live the useful
+# question is which one is blocked or done. `workspace` is still in the rows
+# below, so grouping is not lost.
+agent_panel_sort = "priority"
+
+# Stock rows are [["state_icon", "workspace", "tab"], ["agent"]] — they say
+# where a pane is, not what it is doing. Both agents below write a task summary
+# to the OSC title, worth a row each; the token differs because the noise does.
+#
+# claude prefixes a state glyph (◑, ✳) that state_icon already draws, so it
+# wants _stripped. copilot's noise is the trailing " - GitHub Copilot", which
+# _stripped (leading glyphs only) cannot reach — hence the raw token, and no
+# ["agent"] row, since that suffix already names it.
+#
+# Sample a candidate while it is WORKING before adding it here. A freshly
+# started pane shows only the product name, which makes a good title look
+# like a constant.
+[ui.sidebar.agents.rows_by_agent]
+claude  = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+copilot = [["state_icon", "workspace", "tab"], ["terminal_title"]]
+
 [session]
 # The pane layout comes back after a server restart either way; this also
 # resumes the agent conversations that were running in those panes.
