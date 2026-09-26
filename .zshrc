@@ -31,21 +31,6 @@ if [[ $OSTYPE == darwin* ]]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(${HOMEBREW_PREFIX}/bin/pyenv init --path)"
-
-    # Only autostart tmux if in iterm
-    if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
-            # tmux setup
-            ZSH_TMUX_AUTOSTART="true"
-            ZSH_TMUX_DEFAULT_SESSION_NAME="base"
-    fi
-
-    # Only set iterm2 specific config if we are running iterm2
-    if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
-            alias i2black="it2setcolor bg 000000"
-            alias i2red="it2setcolor bg 700000"
-            alias i2blue="it2setcolor bg 000050"
-            alias i2purple="it2setcolor bg 300050"
-    fi
 fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
