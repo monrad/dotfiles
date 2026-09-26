@@ -68,6 +68,17 @@ function zjd {
 }
 compdef _directories zjd 2>/dev/null
 
+# Remove a host's key(s) from known_hosts (handy after a host is reprovisioned)
+function sshrm {
+  if [ $# -eq 0 ]; then
+    echo "usage: sshrm <hostname-or-ip> [more hosts...]" >&2
+    return 1
+  fi
+  for host in "$@"; do
+    ssh-keygen -R "$host"
+  done
+}
+
 # Work/BM overlays
 [[ -f $HOME/.work.zsh ]] && source $HOME/.work.zsh
 [[ -f $HOME/.bm.zsh   ]] && source $HOME/.bm.zsh
