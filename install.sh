@@ -1,11 +1,11 @@
 #!/bin/bash
 # install.sh for GitHub codespaces
 echo "cloning zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
 echo "cloning zsh-syntax-highlighting"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 echo "cloning you-should-use-this"
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-you-should-use
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-you-should-use
 echo "cloning powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 echo "make sure $HOME/.config/ exists"
@@ -20,6 +20,8 @@ echo "symlink tmux config dir"
 ln -sf --relative .config/tmux "$HOME"/.config/tmux
 echo "symlink zshrc"
 ln -sf --relative .zshrc "$HOME"/.zshrc
+echo "symlink zsh-common.zsh"
+ln -sf --relative .zsh-common.zsh "$HOME"/.zsh-common.zsh
 echo "symlink p10k.zsh"
 ln -sf --relative .p10k.zsh "$HOME"/.p10k.zsh
 echo "switch shell to zsh"
