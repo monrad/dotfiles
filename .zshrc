@@ -14,22 +14,20 @@ if [[ $OSTYPE == darwin* ]]; then
         HOMEBREW_PREFIX="/usr/local"
     fi
 
-    # Add homebrew bin paths
-    export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$PATH"
+    # Homebrew env: PATH, fpath, MANPATH, INFOPATH, HOMEBREW_* vars
+    eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv zsh)"
 
     # Add whois bin path
-    export PATH="${}/opt/whois/bin:$PATH"
-
-    # Add homebrew fpath
-    export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+    export PATH="${HOMEBREW_PREFIX}/opt/whois/bin:$PATH"
 
     # brew coreutils, like sha256sum
     export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:$PATH"
 
     # Add cargo bin path
-    export PATH="$HOME/.cargo/bin/:$PATH"
+    export PATH="$HOME/.cargo/bin:$PATH"
 
-    # pyenv setup
+    # pyenv setup: puts shims on PATH before the omz pyenv plugin loads,
+    # which warns if they're missing
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(${HOMEBREW_PREFIX}/bin/pyenv init --path)"
@@ -79,7 +77,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 plugins=(git fzf virtualenv golang)
 
 if [[ $OSTYPE == darwin* ]]; then
-    plugins+=( brew pyenv tmux pyenv )
+    plugins+=( brew pyenv tmux )
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -89,9 +87,13 @@ source $ZSH/oh-my-zsh.sh
 
 # Mac-only: brew-installed zsh plugins
 if [[ $OSTYPE == darwin* ]]; then
-    source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    source ${HOMEBREW_PREFIX}/share/zsh-you-should-use/you-should-use.plugin.zsh
+    for plugin in \
+        zsh-autosuggestions/zsh-autosuggestions.zsh \
+        zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+        zsh-you-should-use/you-should-use.plugin.zsh; do
+        [[ -f ${HOMEBREW_PREFIX}/share/$plugin ]] && source ${HOMEBREW_PREFIX}/share/$plugin
+    done
+    unset plugin
 fi
 
 # Mac-only: powerlevel10k is a git clone, not a package
@@ -99,4 +101,9 @@ alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlev
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Dedupe path/fpath so nested shells (tmux panes etc.) don't pile up entries.
+# Must stay last: -U only dedupes on array assignment, not the `export PATH="x:$PATH"`
+# scalar form used above and by plugins, so it has to run after all of them.
+typeset -U path fpath
 
