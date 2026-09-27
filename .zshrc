@@ -56,16 +56,20 @@ source $ZSH/oh-my-zsh.sh
 # Shared aliases, exports, and helpers — symlinked from dotfiles on both platforms
 [[ -f ~/.zsh-common.zsh ]] && source ~/.zsh-common.zsh
 
-# Mac-only: brew-installed zsh plugins
+# zsh plugins: from Homebrew on macOS, otherwise git clones in the
+# oh-my-zsh custom plugins directory (same relative paths).
 if [[ $OSTYPE == darwin* ]]; then
-    for plugin in \
-        zsh-autosuggestions/zsh-autosuggestions.zsh \
-        zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
-        zsh-you-should-use/you-should-use.plugin.zsh; do
-        [[ -f ${HOMEBREW_PREFIX}/share/$plugin ]] && source ${HOMEBREW_PREFIX}/share/$plugin
-    done
-    unset plugin
+    zsh_plugin_dir=${HOMEBREW_PREFIX}/share
+else
+    zsh_plugin_dir=${ZSH_CUSTOM:-$ZSH/custom}/plugins
 fi
+for plugin in \
+    zsh-autosuggestions/zsh-autosuggestions.zsh \
+    zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+    zsh-you-should-use/you-should-use.plugin.zsh; do
+    [[ -f $zsh_plugin_dir/$plugin ]] && source $zsh_plugin_dir/$plugin
+done
+unset plugin zsh_plugin_dir
 
 # powerlevel10k is a git clone, not a package
 alias p10k-update='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'
