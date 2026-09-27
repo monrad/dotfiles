@@ -64,7 +64,6 @@ return {
 			"ssh_config",
 			"templ",
 			"terraform",
-			"tmux",
 			"toml",
 			"typescript",
 			"vim",
