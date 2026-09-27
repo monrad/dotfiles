@@ -52,22 +52,6 @@ alias unvim='uv run nvim'
 # Git worktree helper
 function gwtab { gwta -b "$1" "$1"; }
 
-# Zellij
-alias zj='zellij attach --create'
-function zjp {
-  local sel
-  sel=$(zellij list-sessions -s 2>/dev/null | fzf --print-query | tail -n1) || return
-  [[ -n "$sel" ]] && zellij attach --create "$sel"
-}
-function zjh { zellij attach --create "$(basename "$PWD")"; }
-function zjd {
-  local dir=${1:-.}
-  [[ -d $dir ]] || { echo "zjd: no such dir: $dir" >&2; return 1 }
-  builtin cd "$dir" || return
-  zellij attach --create "$(basename "$PWD")"
-}
-compdef _directories zjd 2>/dev/null
-
 # Remove a host's key(s) from known_hosts (handy after a host is reprovisioned)
 function sshrm {
   if [ $# -eq 0 ]; then
