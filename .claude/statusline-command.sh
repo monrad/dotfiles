@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Claude Code status line, two lines in the style of statusline.sh's "triptych":
-#   [model]  effort ⚡  dir  branch ◆  · session name
-#   ctx ▰▰▱▱ used/size (pct%) · ♦ 7d ▰▱▱ pct% T-reset · cache warm
+#   [model]  effort ⚡  dir  branch ◆  #PR ✓  +added −removed  · session name
+#   ctx ▰▰▱▱ used/size (pct%) · ♦ 7d ▰▱▱ pct% T-reset · cache warm T-expiry
+# The cache countdown needs statusLine.refreshInterval in settings.json, or it
+# only redraws on events and freezes while the session is idle.
 
 input=$(cat)
 E=$'\033'
@@ -20,7 +22,13 @@ E=$'\033'
     IFS= read -r week_reset
     IFS= read -r five_pct
     IFS= read -r five_reset
-    IFS= read -r cache_warm
+    IFS= read -r cache_seen
+    IFS= read -r cache_expires
+    IFS= read -r pr_number
+    IFS= read -r pr_state
+    IFS= read -r pr_kind
+    IFS= read -r lines_added
+    IFS= read -r lines_removed
 } < <(printf '%s' "$input" | jq -r '
     (.model.display_name // ""),
     (.effort.level // ""),
@@ -34,7 +42,13 @@ E=$'\033'
     (.rate_limits.seven_day.resets_at // "" | tostring),
     (.rate_limits.five_hour.used_percentage // "" | tostring),
     (.rate_limits.five_hour.resets_at // "" | tostring),
-    (if .prompt_cache then (.prompt_cache.warm | tostring) else "" end)
+    (if .prompt_cache then "true" else "" end),
+    (.prompt_cache.expires_at // "" | tostring),
+    (.pr.number // "" | tostring),
+    (.pr.review_state // ""),
+    (.pr.kind // ""),
+    (.cost.total_lines_added // 0 | tostring),
+    (.cost.total_lines_removed // 0 | tostring)
 ' 2>/dev/null)
 
 c() { printf '%s[%sm%s%s[0m' "$E" "$1" "$2" "$E"; }
@@ -78,13 +92,16 @@ tokens() {
     fi
 }
 
-# Time until an epoch-seconds reset: T-42m, T-2h14m, T-4d03h.
+now=$(date +%s)
+
+# Time until an epoch-seconds instant: T-45s, T-42m, T-2h14m, T-4d03h.
 until_reset() {
     local d
     [ -n "$1" ] || return
-    d=$(( $(int "$1") - $(date +%s) ))
+    d=$(( $(int "$1") - now ))
     [ "$d" -gt 0 ] || return
-    if [ "$d" -lt 3600 ]; then printf 'T-%dm' $(( d / 60 ))
+    if [ "$d" -lt 60 ]; then printf 'T-%ds' "$d"
+    elif [ "$d" -lt 3600 ]; then printf 'T-%dm' $(( d / 60 ))
     elif [ "$d" -lt 86400 ]; then printf 'T-%dh%02dm' $(( d / 3600 )) $(( d % 3600 / 60 ))
     else printf 'T-%dd%02dh' $(( d / 86400 )) $(( d % 86400 / 3600 )); fi
 }
@@ -117,8 +134,26 @@ if [ -n "$cwd" ] && git -C "$cwd" --no-optional-locks rev-parse --git-dir >/dev/
     fi
 fi
 
+if [ -n "$pr_number" ]; then
+    prefix='#'
+    [ "$pr_kind" = mr ] && prefix='!'
+    case $pr_state in
+        approved) mark=$(c '1;32' '✓') ;;
+        changes_requested) mark=$(c '1;31' '✗') ;;
+        pending) mark=$(c '33' '○') ;;
+        draft) mark=$(c '2' '✎') ;;
+        *) mark='' ;;
+    esac
+    l1+="  $(c '38;2;147;197;253' "$prefix$pr_number")"
+    [ -n "$mark" ] && l1+=" $mark"
+fi
+
+if [ "$(int "$lines_added")" -gt 0 ] || [ "$(int "$lines_removed")" -gt 0 ]; then
+    l1+="  $(c '32' "+$(int "$lines_added")") $(c '31' "−$(int "$lines_removed")")"
+fi
+
 if [ -n "$session" ]; then
-    [ "${#session}" -gt 40 ] && session="${session:0:39}…"
+    [ "${#session}" -gt 32 ] && session="${session:0:31}…"
     l1+="  $(c '2;90' '·') $(c '3;38;2;251;207;232' "$session")"
 fi
 
@@ -139,10 +174,17 @@ fi
 [ -n "$week_pct" ] && segs+=("$(limit '♦' '7d' '96' "$week_pct" "$week_reset")")
 [ -n "$five_pct" ] && segs+=("$(limit '✦' '5h' '94' "$five_pct" "$five_reset")")
 
-if [ "$cache_warm" = true ]; then
-    segs+=("$(c '2;38;2;134;239;172' 'cache warm')")
-elif [ "$cache_warm" = false ]; then
-    segs+=("$(c '2;90' 'cache cold')")
+# Warm while expires_at is ahead of the clock: the JSON's own `warm` flag is
+# computed at the last response and goes stale while the session is idle.
+if [ -n "$cache_seen" ]; then
+    left=$(until_reset "$cache_expires")
+    if [ -z "$left" ]; then
+        segs+=("$(c '2;90' 'cache cold')")
+    elif [ $(( $(int "$cache_expires") - now )) -lt 300 ]; then
+        segs+=("$(c '33' "cache warm $left")")
+    else
+        segs+=("$(c '2;38;2;134;239;172' "cache warm $left")")
+    fi
 fi
 
 l2=""
